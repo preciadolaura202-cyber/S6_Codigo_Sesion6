@@ -32,8 +32,8 @@ class ChatRequest(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "mensaje":    "¿Qué temperatura hace en Bogotá?",
-                "session_id": "usuario_001"
+                "mensaje":    "¿Cuánto cuesta el labial Velvet Rose?",
+                "session_id": "clienta_001"
             }
         }
 
@@ -48,9 +48,9 @@ class AgentRequest(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "tarea":    "Analiza las ventajas de los implantes dentales vs prótesis removibles",
-                "contexto": "Paciente de 55 años con buena salud ósea",
-                "session_id": "caso_clinico_001"
+                "tarea":    "Genera un resumen de los productos con stock bajo",
+                "contexto": "Catálogo Primavera-Verano 2026 de LAUPRÉA BEAUTY",
+                "session_id": "catalogo_001"
             }
         }
 
@@ -73,12 +73,12 @@ class ChatResponse(BaseModel):
     class Config:
         json_schema_extra = {
             "example": {
-                "respuesta":  "En Bogotá actualmente hay 16°C con cielo parcialmente nublado.",
-                "session_id": "usuario_001",
-                "timestamp":  "2025-01-15T10:30:00",
+                "respuesta":  "El labial Velvet Rose cuesta $42.900 COP y está disponible en el catálogo Primavera-Verano 2026.",
+                "session_id": "clienta_001",
+                "timestamp":  "2026-03-15T10:30:00",
                 "modelo":     "openai/gpt-oss-120b",
-                "categoria":  "conversacion",
-                "fuentes":    []
+                "categoria":  "documentos",
+                "fuentes":    ["05_catalogo_productos.pdf (pág. 0)"]
             }
         }
 

@@ -23,11 +23,16 @@
 """
 
 import os
+import sys
 from pathlib import Path
 from dotenv import load_dotenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
+
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
 
 from routes.chat   import router as chat_router
 from routes.agent  import router as agent_router
@@ -39,14 +44,16 @@ load_dotenv()
 #  ✏️ MODIFICA AQUÍ — Metadata de tu API
 #  Esto aparece en la documentación Swagger
 # ═══════════════════════════════════════════════════════════
-NOMBRE_AGENTE = os.getenv("AGENT_NAME", "Asistente")
+NOMBRE_AGENTE = os.getenv("AGENT_NAME", "LAUPRÉA BEAUTY")
 
 app = FastAPI(
     title=f"API — {NOMBRE_AGENTE}",
     description=f"""
-## Agente Inteligente: {NOMBRE_AGENTE}
+## Asistente Inteligente: {NOMBRE_AGENTE}
 
-API REST para interactuar con el agente de IA construido durante el seminario.
+API REST del asistente virtual de **LAUPRÉA BEAUTY**, una empresa que vende
+maquillaje, skincare y accesorios por catálogo. Consulta productos, precios,
+stock, pedidos y políticas, o genera análisis y reportes de ventas.
 
 ### Endpoints disponibles:
 - **POST /chat** — Conversar con el agente (con memoria por sesión)
@@ -61,8 +68,8 @@ API REST para interactuar con el agente de IA construido durante el seminario.
     version="1.0.0",
     # ✏️ MODIFICA AQUÍ: cambia los metadatos
     contact={
-        "name":  "Seminario Agentes IA",
-        "email": "tu@email.com",
+        "name":  "LAUPRÉA BEAUTY",
+        "email": "soporte@lauprea.com",
     },
     license_info={
         "name": "MIT",

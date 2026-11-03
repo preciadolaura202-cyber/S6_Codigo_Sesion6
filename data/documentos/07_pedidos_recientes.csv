@@ -1,0 +1,31 @@
+pedido_id,fecha,ciudad,canal,productos,valor_total_cop,estado,transportadora,guia
+PED-2026-1207,2026-10-28,Cali,WhatsApp,Espejo de Bolsillo x4,79600,Entregado,Servientrega,GUIA-421636
+PED-2026-1216,2026-10-28,Cali,WhatsApp,Contorno Sculpt Stick x1,52900,Entregado,Interrapidísimo,GUIA-829029
+PED-2026-1223,2026-10-28,Medellín,Asesora,Esponja Blender Duo x4,99600,Novedad,Envía,GUIA-534445
+PED-2026-1211,2026-10-27,Pereira,WhatsApp,Crema Hidratante Aqua Balance x2,139800,En tránsito,Envía,GUIA-311102
+PED-2026-1229,2026-10-26,Cali,WhatsApp,Set de Brochas Pro 12 Piezas x3,299700,Entregado,Servientrega,GUIA-954674
+PED-2026-1201,2026-10-25,Barranquilla,Asesora,Labial en Barra Coral Bloom x4,171600,Entregado,Servientrega,GUIA-828384
+PED-2026-1227,2026-10-25,Bogotá,WhatsApp,Iluminador Liquid Gold x2,111800,En tránsito,Coordinadora,GUIA-816624
+PED-2026-1224,2026-10-24,Medellín,Catálogo digital,Sombra Duo Golden Hour x1,49900,Entregado,Interrapidísimo,GUIA-900489
+PED-2026-1205,2026-10-23,Cali,Catálogo digital,Paleta de Ojos Sunset 12 Tonos x2,239800,En tránsito,Coordinadora,GUIA-385318
+PED-2026-1204,2026-10-22,Bogotá,Asesora,Lápiz de Cejas Define x3,98700,Entregado,Coordinadora,GUIA-603806
+PED-2026-1213,2026-10-19,Bucaramanga,Catálogo digital,Rizador de Pestañas Rose Gold x2,59800,En alistamiento,Coordinadora,GUIA-321196
+PED-2026-1210,2026-10-17,Bogotá,WhatsApp,Labial Líquido Rouge Noir x3,137700,En alistamiento,Interrapidísimo,GUIA-478635
+PED-2026-1228,2026-10-15,Pereira,WhatsApp,Corrector Radiant Cover x4,199600,Novedad,Interrapidísimo,GUIA-290954
+PED-2026-1203,2026-10-14,Cali,Asesora,Rizador de Pestañas Rose Gold x4,119600,Novedad,Interrapidísimo,GUIA-240415
+PED-2026-1212,2026-10-14,Cali,WhatsApp,Labial Líquido Rouge Noir x3,137700,Entregado,Servientrega,GUIA-158583
+PED-2026-1221,2026-10-14,Barranquilla,Catálogo digital,Base Líquida Skin Glow x3,239700,En alistamiento,Servientrega,GUIA-853038
+PED-2026-1214,2026-10-12,Barranquilla,WhatsApp,Contorno Sculpt Stick x4,211600,Entregado,Coordinadora,GUIA-151681
+PED-2026-1215,2026-10-12,Bogotá,WhatsApp,Labial Líquido Rouge Noir x2,91800,Entregado,Servientrega,GUIA-201746
+PED-2026-1218,2026-10-12,Barranquilla,WhatsApp,Protector Solar SPF 50 Daily x4,299600,En tránsito,Servientrega,GUIA-255804
+PED-2026-1226,2026-10-12,Barranquilla,Catálogo digital,Sérum Vitamina C Glow x4,359600,Entregado,Interrapidísimo,GUIA-264735
+PED-2026-1209,2026-10-11,Bucaramanga,Asesora,Base Líquida Skin Glow x3,239700,En tránsito,Servientrega,GUIA-901114
+PED-2026-1222,2026-10-11,Medellín,Catálogo digital,Esponja Blender Duo x1,24900,Entregado,Coordinadora,GUIA-383639
+PED-2026-1220,2026-10-10,Barranquilla,Asesora,Rizador de Pestañas Rose Gold x3,89700,Entregado,Interrapidísimo,GUIA-733848
+PED-2026-1202,2026-10-08,Medellín,WhatsApp,Lápiz de Cejas Define x2,65800,Entregado,Servientrega,GUIA-562392
+PED-2026-1219,2026-10-08,Bogotá,Asesora,Contorno Sculpt Stick x2,105800,Entregado,Envía,GUIA-407647
+PED-2026-1230,2026-10-08,Barranquilla,Catálogo digital,Labial Velvet Rose x4,171600,Entregado,Interrapidísimo,GUIA-366894
+PED-2026-1225,2026-10-07,Bucaramanga,Asesora,Labial Líquido Rouge Noir x2,91800,En alistamiento,Envía,GUIA-202316
+PED-2026-1206,2026-10-03,Bogotá,Asesora,Labial Líquido Rouge Noir x2,91800,Entregado,Interrapidísimo,GUIA-144915
+PED-2026-1208,2026-10-01,Bogotá,Catálogo digital,Neceser LAUPRÉA x1,34900,Cancelado,Interrapidísimo,GUIA-954804
+PED-2026-1217,2026-10-01,Bucaramanga,Catálogo digital,Protector Solar SPF 50 Daily x1,74900,En alistamiento,Servientrega,GUIA-805292

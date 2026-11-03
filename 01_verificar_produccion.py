@@ -17,6 +17,10 @@ import requests
 import json
 import sys
 
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
 # ─────────────────────────────────────────────────────────
 #  ✏️ MODIFICA AQUÍ — URL de tu proyecto en Railway
 #  Formato: https://tu-proyecto.railway.app
@@ -81,7 +85,7 @@ def verificar_entorno(base_url, nombre_entorno):
     # Chat
     resultados.append(probar_endpoint(base_url, "POST", "/chat", {
         # ✏️ MODIFICA AQUÍ: pregunta de prueba según tu dominio
-        "mensaje":    "Hola, ¿qué puedes hacer?",
+        "mensaje":    "Hola, ¿qué puedes hacer por LAUPRÉA BEAUTY?",
         "session_id": "verificacion_001"
     }))
 
@@ -100,7 +104,7 @@ def verificar_entorno(base_url, nombre_entorno):
     # Agent
     resultados.append(probar_endpoint(base_url, "POST", "/agent", {
         # ✏️ MODIFICA AQUÍ: tarea según tu dominio
-        "tarea":      "Dame 3 características de un buen agente de IA",
+        "tarea":      "Dame 3 recomendaciones para aumentar las ventas por catálogo",
         "session_id": "verificacion_agente"
     }))
 

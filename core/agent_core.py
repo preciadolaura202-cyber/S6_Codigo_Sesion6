@@ -24,7 +24,7 @@ from core.tools import TOOLS_BASE
 
 load_dotenv()
 
-NOMBRE_AGENTE = os.getenv("AGENT_NAME", "Asistente")
+NOMBRE_AGENTE = os.getenv("AGENT_NAME", "LAUPRÉA BEAUTY")
 
 
 class AgentService:

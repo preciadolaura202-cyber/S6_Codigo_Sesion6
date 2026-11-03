@@ -1,10 +1,10 @@
-# 🤖 [NOMBRE DE TU AGENTE]
+# 💄 LAUPRÉA BEAUTY — Asistente Virtual
 
-> [Una línea describiendo qué hace tu agente]
+> Agente de IA para la venta de maquillaje, skincare y accesorios por catálogo.
 
 ## Descripción
 
-[2-3 oraciones describiendo el propósito del agente, el dominio en que está especializado y qué valor aporta al usuario.]
+LAUPRÉA BEAUTY es una marca que vende maquillaje por catálogo a través de asesoras y canales digitales. Este agente responde consultas de clientas y del equipo comercial sobre catálogo, precios, stock, envíos, devoluciones y pedidos, y además analiza las ventas y genera reportes ejecutivos.
 
 ## 🚀 Demo en vivo
 
@@ -21,7 +21,7 @@ automáticamente qué camino tomar según la pregunta — resume todo el curso:
 | Camino | Se activa cuando... | Concepto del curso |
 |---|---|---|
 | **conversación** | saludos, cálculos, clima, hora, preguntas generales | Memoria + Herramientas (Sesiones 1-3) |
-| **documentos** | preguntas sobre políticas, garantías, catálogo, RRHH | RAG sobre PDFs/CSV reales (Sesión 4) |
+| **documentos** | preguntas sobre catálogo, precios, stock, envíos, devoluciones y pedidos | RAG sobre PDFs/CSV reales (Sesión 4) |
 | **análisis** | "analiza", "compara", "investiga", "evalúa" | Equipo Investigador→Analista→Redactor (Sesión 4) |
 | **reporte** | "genera un reporte", "informe ejecutivo" | Salida Estructurada con Pydantic (Sesión 2) |
 
@@ -52,13 +52,13 @@ automáticamente qué camino tomar según la pregunta — resume todo el curso:
 # Conversar con el agente
 curl -X POST https://tu-proyecto.railway.app/chat \
   -H "Content-Type: application/json" \
-  -d '{"mensaje": "Hola, ¿qué puedes hacer?", "session_id": "usuario_01"}'
+  -d '{"mensaje": "¿Cuánto cuesta el labial Velvet Rose?", "session_id": "clienta_01"}'
 ```
 
 ```json
 {
-  "respuesta": "Hola! Soy [NOMBRE], especialista en [DOMINIO]...",
-  "session_id": "usuario_01",
+  "respuesta": "El labial Velvet Rose cuesta $42.900 COP y está disponible en el catálogo Primavera-Verano 2026.",
+  "session_id": "clienta_01",
   "modelo": "openai/gpt-oss-120b"
 }
 ```

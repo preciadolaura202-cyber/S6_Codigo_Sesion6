@@ -74,11 +74,11 @@ def consultar_clima(ciudad: str) -> str:
 @tool
 def buscar_documentos(pregunta: str) -> str:
     """
-    Busca en los documentos internos de TechnoDistrib S.A.S.: política
-    comercial, informe de RRHH, protocolo de atención al cliente, plan
-    estratégico y catálogo de productos. Úsala para preguntas sobre
-    políticas, garantías, precios de catálogo, indicadores de RRHH o
-    la estrategia de la empresa.
+    Busca en los documentos internos de LAUPRÉA BEAUTY S.A.S.: política
+    comercial, informe del equipo comercial/RRHH, protocolo de atención,
+    plan estratégico, catálogo de productos y pedidos recientes. Úsala
+    para preguntas sobre precios, tonos, stock, envíos, devoluciones,
+    garantías, pedidos o la estrategia de la empresa.
     """
     motor = obtener_motor()
     texto, fuentes = motor.buscar(pregunta)
@@ -88,12 +88,46 @@ def buscar_documentos(pregunta: str) -> str:
 
 
 @tool
+def consultar_catalogo(categoria: str = "", solo_stock_bajo: bool = False) -> str:
+    """
+    Consulta el catálogo de maquillaje, skincare y accesorios de LAUPRÉA
+    BEAUTY: precios, existencias y estado. Úsala cuando pregunten por
+    productos, tonos, precios o inventario. Puedes filtrar por categoría
+    (Labios, Ojos, Rostro, Skincare, Accesorios) o pedir solo los
+    productos con stock bajo.
+    """
+    ruta = Path(os.getenv("DOCUMENTOS_DIR", "data/documentos")) / "05_catalogo_productos.csv"
+    if not ruta.exists():
+        return "No se encontró el catálogo de productos."
+
+    df = pd.read_csv(ruta)
+    if categoria:
+        patron = categoria.strip().lower()
+        filtro = (
+            df["categoria"].str.lower().str.contains(patron, na=False)
+            | df["producto"].str.lower().str.contains(patron, na=False)
+        )
+        df = df[filtro]
+    if solo_stock_bajo:
+        df = df[df["stock"] <= df["stock_minimo"]]
+
+    if df.empty:
+        return "No se encontraron productos con ese criterio."
+
+    df = df.copy()
+    df["precio_cop"] = df["precio_cop"].map(lambda v: f"${v:,.0f}")
+    columnas = ["codigo", "producto", "categoria", "precio_cop", "stock", "estado"]
+    return df[columnas].to_string(index=False)
+
+
+@tool
 def analizar_ventas(agrupar_por: str = "region") -> str:
     """
-    Analiza las ventas reales de TechnoDistrib S.A.S. desde el archivo
-    de ventas regionales. agrupar_por puede ser: 'region', 'producto' o 'mes'.
-    Úsala para preguntas sobre cifras de ventas, qué región vende más,
-    producto más vendido, o tendencias por mes.
+    Analiza las ventas reales de LAUPRÉA BEAUTY desde el archivo de ventas
+    por catálogo. agrupar_por puede ser: 'region', 'producto', 'categoria',
+    'canal' o 'mes'. Úsala para preguntas sobre cifras de ventas, qué
+    región vende más, productos o categorías más vendidas, canales de
+    venta o tendencias por mes.
     """
     ruta = Path(os.getenv("DOCUMENTOS_DIR", "data/documentos")) / "06_ventas_regionales.csv"
     if not ruta.exists():
@@ -102,19 +136,37 @@ def analizar_ventas(agrupar_por: str = "region") -> str:
     df = pd.read_csv(ruta, parse_dates=["fecha"])
     agrupar_por = agrupar_por.strip().lower()
 
+    columnas = {
+        "region": "region",
+        "producto": "producto",
+        "categoria": "categoria",
+        "canal": "canal",
+        "mes": "mes",
+    }
+    if agrupar_por not in columnas:
+        agrupar_por = "region"
+
     if agrupar_por == "mes":
         df["mes"] = df["fecha"].dt.strftime("%Y-%m")
         resumen = df.groupby("mes")["valor_total_cop"].sum().sort_index()
-    elif agrupar_por == "producto":
-        resumen = df.groupby("producto")["valor_total_cop"].sum().sort_values(ascending=False)
     else:
-        agrupar_por = "region"
-        resumen = df.groupby("region")["valor_total_cop"].sum().sort_values(ascending=False)
+        resumen = df.groupby(columnas[agrupar_por])["valor_total_cop"].sum().sort_values(ascending=False)
 
-    total = df["valor_total_cop"].sum()
-    lineas = [f"- {idx}: ${val:,.0f} COP" for idx, val in resumen.items()]
-    return f"Ventas totales del periodo: ${total:,.0f} COP\n\nDesglose por {agrupar_por}:\n" + "\n".join(lineas)
+    total = float(df["valor_total_cop"].sum())
+    unidades = int(df["unidades"].sum())
+    lineas = [f"- {idx}: ${float(val):,.0f} COP" for idx, val in resumen.items()]
+    return (
+        f"Ventas totales del periodo: ${total:,.0f} COP en {unidades:,.0f} unidades\n\n"
+        f"Desglose por {agrupar_por}:\n" + "\n".join(lineas)
+    )
 
 
 # ✏️ MODIFICA AQUÍ: agrega o quita herramientas del agente conversacional
-TOOLS_BASE = [calculadora, fecha_hora_actual, consultar_clima, buscar_documentos, analizar_ventas]
+TOOLS_BASE = [
+    calculadora,
+    fecha_hora_actual,
+    consultar_clima,
+    buscar_documentos,
+    consultar_catalogo,
+    analizar_ventas,
+]

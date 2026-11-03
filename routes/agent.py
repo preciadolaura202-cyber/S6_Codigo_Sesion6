@@ -52,7 +52,7 @@ async def ejecutar_agente(request: AgentRequest):
 
 
 # ✏️ MODIFICA AQUÍ: agrega endpoints específicos de tu dominio
-# Ejemplo para un agente médico:
-# @router.post("/agent/diagnostico")
-# async def analizar_caso(caso: CasoClinicoRequest):
+# Ejemplo para el catálogo de LAUPRÉA:
+# @router.post("/agent/stock-bajo")
+# async def consultar_stock_bajo():
 #     ...

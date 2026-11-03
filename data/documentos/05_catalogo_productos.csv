@@ -1,0 +1,26 @@
+codigo,producto,categoria,precio_cop,stock,stock_minimo,estado
+LB-001,Labial Velvet Rose,Labios,42900,85,20,Disponible
+LB-002,Labial Matte Nude,Labios,42900,64,20,Disponible
+LB-003,Labial Gloss Aurora,Labios,39900,12,18,Bajo stock
+LB-004,Labial Líquido Rouge Noir,Labios,45900,40,15,Disponible
+LB-005,Labial en Barra Coral Bloom,Labios,42900,0,15,Agotado
+OJ-001,Paleta de Ojos Sunset 12 Tonos,Ojos,119900,28,10,Disponible
+OJ-002,Máscara de Pestañas Volume Pro,Ojos,54900,52,15,Disponible
+OJ-003,Delineador Líquido Precision,Ojos,34900,8,12,Bajo stock
+OJ-004,Sombra Duo Golden Hour,Ojos,49900,33,10,Disponible
+OJ-005,Lápiz de Cejas Define,Ojos,32900,47,12,Disponible
+RO-001,Base Líquida Skin Glow,Rostro,79900,36,12,Disponible
+RO-002,Corrector Radiant Cover,Rostro,49900,22,12,Disponible
+RO-003,Polvo Compacto Soft Matte,Rostro,59900,9,12,Bajo stock
+RO-004,Rubor en Polvo Peach Blush,Rostro,45900,41,12,Disponible
+RO-005,Iluminador Liquid Gold,Rostro,55900,17,10,Disponible
+RO-006,Contorno Sculpt Stick,Rostro,52900,5,10,Bajo stock
+SK-001,Sérum Vitamina C Glow,Skincare,89900,26,10,Disponible
+SK-002,Crema Hidratante Aqua Balance,Skincare,69900,31,10,Disponible
+SK-003,Agua Micelar Gentle Clean,Skincare,39900,44,15,Disponible
+SK-004,Protector Solar SPF 50 Daily,Skincare,74900,0,12,Agotado
+AC-001,Set de Brochas Pro 12 Piezas,Accesorios,99900,19,8,Disponible
+AC-002,Esponja Blender Duo,Accesorios,24900,60,15,Disponible
+AC-003,Rizador de Pestañas Rose Gold,Accesorios,29900,7,10,Bajo stock
+AC-004,Neceser LAUPRÉA,Accesorios,34900,25,8,Disponible
+AC-005,Espejo de Bolsillo,Accesorios,19900,38,10,Disponible

@@ -13,13 +13,13 @@ from pydantic import BaseModel, Field
 
 class Alerta(BaseModel):
     """Una alerta o riesgo detectado para el reporte ejecutivo."""
-    area: str = Field(description="Área afectada: Ventas, RRHH, Operaciones, Finanzas, etc.")
+    area: str = Field(description="Área afectada: Ventas, Inventario, Marketing, Logística, Servicio al Cliente o Finanzas")
     descripcion: str = Field(description="Descripción concreta del riesgo o alerta")
     accion_recomendada: str = Field(description="Acción concreta recomendada")
 
 
 class ReporteEjecutivo(BaseModel):
-    """Reporte ejecutivo estructurado para TechnoDistrib S.A.S."""
+    """Reporte ejecutivo estructurado para LAUPRÉA BEAUTY S.A.S."""
     resumen_ejecutivo: str = Field(description="Resumen del reporte en 2-3 oraciones")
     alertas: List[Alerta] = Field(default_factory=list, description="Alertas o riesgos detectados")
     oportunidades: List[str] = Field(default_factory=list, description="Oportunidades identificadas")

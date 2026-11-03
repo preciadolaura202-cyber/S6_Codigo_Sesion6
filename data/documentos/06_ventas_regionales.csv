@@ -1,181 +1,321 @@
-fecha,region,producto,unidades,valor_unitario_cop,valor_total_cop
-2024-03-23,Medellin,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-01-13,Bogota,Monitor Dell 27 UltraSharp,2,1450000,2900000
-2024-04-03,Bucaramanga,Dell Latitude 5540,9,4850000,43650000
-2024-02-24,Bogota,Dell Latitude 5540,7,4850000,33950000
-2024-04-17,Bogota,HP EliteBook 840 G10,2,3920000,7840000
-2024-05-21,Barranquilla,Dell Latitude 5540,10,4850000,48500000
-2024-02-01,Medellin,Monitor Dell 27 UltraSharp,1,1450000,1450000
-2024-05-27,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,1,780000,780000
-2024-02-26,Bogota,Monitor Dell 27 UltraSharp,3,1450000,4350000
-2024-03-15,Barranquilla,HP EliteBook 840 G10,9,3920000,35280000
-2024-01-31,Bucaramanga,Switch Cisco Catalyst 1300-24T,9,1850000,16650000
-2024-06-23,Medellin,Dell Latitude 5540,10,4850000,48500000
-2024-05-26,Medellin,Switch Cisco Catalyst 1300-24T,2,1850000,3700000
-2024-05-20,Bogota,Monitor Dell 27 UltraSharp,1,1450000,1450000
-2024-06-07,Medellin,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-05-16,Barranquilla,Switch Cisco Catalyst 1300-24T,8,1850000,14800000
-2024-05-29,Barranquilla,Switch Cisco Catalyst 1300-24T,5,1850000,9250000
-2024-03-04,Medellin,HP EliteBook 840 G10,2,3920000,7840000
-2024-05-27,Cali,Monitor Dell 27 UltraSharp,8,1450000,11600000
-2024-03-28,Barranquilla,Switch Cisco Catalyst 1300-24T,10,1850000,18500000
-2024-01-19,Bogota,Monitor Dell 27 UltraSharp,7,1450000,10150000
-2024-02-12,Cali,HP EliteBook 840 G10,8,3920000,31360000
-2024-04-17,Bogota,Dell Latitude 5540,9,4850000,43650000
-2024-05-26,Cali,Switch Cisco Catalyst 1300-24T,12,1850000,22200000
-2024-03-30,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,10,780000,7800000
-2024-04-26,Bogota,Dell Latitude 5540,5,4850000,24250000
-2024-05-01,Bogota,Dell Latitude 5540,12,4850000,58200000
-2024-06-28,Cali,Monitor Dell 27 UltraSharp,11,1450000,15950000
-2024-04-24,Cali,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-03-29,Bogota,Access Point Ubiquiti UniFi U6 Pro,6,780000,4680000
-2024-02-13,Bucaramanga,Dell Latitude 5540,8,4850000,38800000
-2024-01-16,Medellin,Switch Cisco Catalyst 1300-24T,3,1850000,5550000
-2024-03-04,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,8,780000,6240000
-2024-01-21,Medellin,Access Point Ubiquiti UniFi U6 Pro,7,780000,5460000
-2024-05-20,Cali,HP EliteBook 840 G10,7,3920000,27440000
-2024-05-20,Cali,Access Point Ubiquiti UniFi U6 Pro,6,780000,4680000
-2024-06-23,Barranquilla,HP EliteBook 840 G10,3,3920000,11760000
-2024-01-22,Medellin,HP EliteBook 840 G10,4,3920000,15680000
-2024-06-17,Medellin,Dell Latitude 5540,8,4850000,38800000
-2024-05-30,Medellin,Switch Cisco Catalyst 1300-24T,5,1850000,9250000
-2024-01-02,Medellin,Access Point Ubiquiti UniFi U6 Pro,9,780000,7020000
-2024-04-04,Bucaramanga,Monitor Dell 27 UltraSharp,6,1450000,8700000
-2024-02-02,Bucaramanga,Monitor Dell 27 UltraSharp,11,1450000,15950000
-2024-06-22,Bogota,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-05-23,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,7,780000,5460000
-2024-04-10,Bogota,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-04-12,Bogota,HP EliteBook 840 G10,2,3920000,7840000
-2024-02-23,Barranquilla,HP EliteBook 840 G10,2,3920000,7840000
-2024-03-28,Bucaramanga,Dell Latitude 5540,2,4850000,9700000
-2024-01-01,Bucaramanga,HP EliteBook 840 G10,9,3920000,35280000
-2024-01-26,Cali,Monitor Dell 27 UltraSharp,1,1450000,1450000
-2024-01-19,Medellin,Monitor Dell 27 UltraSharp,7,1450000,10150000
-2024-02-08,Cali,Switch Cisco Catalyst 1300-24T,10,1850000,18500000
-2024-04-03,Barranquilla,Dell Latitude 5540,2,4850000,9700000
-2024-05-04,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,8,780000,6240000
-2024-03-20,Bogota,HP EliteBook 840 G10,2,3920000,7840000
-2024-03-28,Cali,Access Point Ubiquiti UniFi U6 Pro,12,780000,9360000
-2024-02-11,Bucaramanga,Dell Latitude 5540,4,4850000,19400000
-2024-05-15,Cali,HP EliteBook 840 G10,12,3920000,47040000
-2024-05-19,Bogota,Monitor Dell 27 UltraSharp,5,1450000,7250000
-2024-06-13,Bogota,Switch Cisco Catalyst 1300-24T,9,1850000,16650000
-2024-04-03,Medellin,Switch Cisco Catalyst 1300-24T,4,1850000,7400000
-2024-05-16,Bucaramanga,Monitor Dell 27 UltraSharp,6,1450000,8700000
-2024-06-11,Medellin,Monitor Dell 27 UltraSharp,4,1450000,5800000
-2024-03-02,Barranquilla,HP EliteBook 840 G10,4,3920000,15680000
-2024-05-12,Barranquilla,Switch Cisco Catalyst 1300-24T,12,1850000,22200000
-2024-01-08,Bogota,Switch Cisco Catalyst 1300-24T,8,1850000,14800000
-2024-03-07,Medellin,Monitor Dell 27 UltraSharp,6,1450000,8700000
-2024-04-24,Cali,Switch Cisco Catalyst 1300-24T,2,1850000,3700000
-2024-02-26,Bogota,HP EliteBook 840 G10,8,3920000,31360000
-2024-02-20,Cali,HP EliteBook 840 G10,8,3920000,31360000
-2024-06-08,Bucaramanga,Dell Latitude 5540,8,4850000,38800000
-2024-06-16,Cali,Dell Latitude 5540,11,4850000,53350000
-2024-01-31,Barranquilla,HP EliteBook 840 G10,8,3920000,31360000
-2024-02-15,Barranquilla,Switch Cisco Catalyst 1300-24T,2,1850000,3700000
-2024-04-11,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,12,780000,9360000
-2024-01-22,Medellin,HP EliteBook 840 G10,3,3920000,11760000
-2024-01-08,Medellin,Monitor Dell 27 UltraSharp,8,1450000,11600000
-2024-06-16,Medellin,Monitor Dell 27 UltraSharp,10,1450000,14500000
-2024-05-01,Cali,HP EliteBook 840 G10,9,3920000,35280000
-2024-05-20,Medellin,Dell Latitude 5540,1,4850000,4850000
-2024-06-15,Bogota,Monitor Dell 27 UltraSharp,12,1450000,17400000
-2024-02-05,Barranquilla,HP EliteBook 840 G10,4,3920000,15680000
-2024-01-08,Cali,HP EliteBook 840 G10,5,3920000,19600000
-2024-05-08,Medellin,Monitor Dell 27 UltraSharp,6,1450000,8700000
-2024-03-07,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,3,780000,2340000
-2024-01-16,Cali,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-05-29,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,9,780000,7020000
-2024-02-03,Bucaramanga,HP EliteBook 840 G10,9,3920000,35280000
-2024-05-10,Bogota,Access Point Ubiquiti UniFi U6 Pro,3,780000,2340000
-2024-06-04,Bogota,HP EliteBook 840 G10,3,3920000,11760000
-2024-02-06,Barranquilla,Monitor Dell 27 UltraSharp,12,1450000,17400000
-2024-01-31,Bucaramanga,Dell Latitude 5540,6,4850000,29100000
-2024-06-23,Bucaramanga,Monitor Dell 27 UltraSharp,9,1450000,13050000
-2024-05-03,Bogota,Monitor Dell 27 UltraSharp,1,1450000,1450000
-2024-03-04,Medellin,Switch Cisco Catalyst 1300-24T,1,1850000,1850000
-2024-01-26,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,9,780000,7020000
-2024-01-08,Bogota,Access Point Ubiquiti UniFi U6 Pro,6,780000,4680000
-2024-06-05,Bucaramanga,Monitor Dell 27 UltraSharp,9,1450000,13050000
-2024-02-21,Cali,Access Point Ubiquiti UniFi U6 Pro,9,780000,7020000
-2024-05-16,Barranquilla,Monitor Dell 27 UltraSharp,4,1450000,5800000
-2024-06-27,Bucaramanga,Switch Cisco Catalyst 1300-24T,9,1850000,16650000
-2024-02-21,Barranquilla,HP EliteBook 840 G10,7,3920000,27440000
-2024-02-01,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,6,780000,4680000
-2024-01-19,Medellin,Access Point Ubiquiti UniFi U6 Pro,2,780000,1560000
-2024-02-24,Cali,Dell Latitude 5540,3,4850000,14550000
-2024-06-13,Cali,HP EliteBook 840 G10,5,3920000,19600000
-2024-02-05,Barranquilla,HP EliteBook 840 G10,12,3920000,47040000
-2024-01-25,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,3,780000,2340000
-2024-06-19,Medellin,HP EliteBook 840 G10,12,3920000,47040000
-2024-04-20,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,6,780000,4680000
-2024-04-17,Medellin,Switch Cisco Catalyst 1300-24T,6,1850000,11100000
-2024-01-24,Cali,Dell Latitude 5540,6,4850000,29100000
-2024-05-21,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,12,780000,9360000
-2024-01-05,Barranquilla,Switch Cisco Catalyst 1300-24T,9,1850000,16650000
-2024-06-08,Cali,Monitor Dell 27 UltraSharp,2,1450000,2900000
-2024-01-29,Medellin,Dell Latitude 5540,2,4850000,9700000
-2024-03-08,Cali,Dell Latitude 5540,3,4850000,14550000
-2024-03-10,Medellin,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-03-07,Barranquilla,HP EliteBook 840 G10,9,3920000,35280000
-2024-05-11,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,12,780000,9360000
-2024-03-24,Bogota,Switch Cisco Catalyst 1300-24T,1,1850000,1850000
-2024-06-25,Medellin,Access Point Ubiquiti UniFi U6 Pro,2,780000,1560000
-2024-03-09,Bogota,Dell Latitude 5540,5,4850000,24250000
-2024-01-22,Bucaramanga,HP EliteBook 840 G10,2,3920000,7840000
-2024-03-08,Bogota,Access Point Ubiquiti UniFi U6 Pro,1,780000,780000
-2024-03-27,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,5,780000,3900000
-2024-06-08,Medellin,Dell Latitude 5540,9,4850000,43650000
-2024-03-02,Bogota,HP EliteBook 840 G10,5,3920000,19600000
-2024-01-13,Medellin,HP EliteBook 840 G10,5,3920000,19600000
-2024-06-09,Cali,Monitor Dell 27 UltraSharp,4,1450000,5800000
-2024-03-15,Barranquilla,Monitor Dell 27 UltraSharp,11,1450000,15950000
-2024-02-15,Cali,Switch Cisco Catalyst 1300-24T,1,1850000,1850000
-2024-03-05,Bogota,Dell Latitude 5540,1,4850000,4850000
-2024-05-09,Bucaramanga,HP EliteBook 840 G10,9,3920000,35280000
-2024-05-01,Medellin,Access Point Ubiquiti UniFi U6 Pro,2,780000,1560000
-2024-06-17,Barranquilla,Access Point Ubiquiti UniFi U6 Pro,9,780000,7020000
-2024-04-10,Bucaramanga,Switch Cisco Catalyst 1300-24T,12,1850000,22200000
-2024-02-25,Medellin,Switch Cisco Catalyst 1300-24T,4,1850000,7400000
-2024-06-11,Medellin,Access Point Ubiquiti UniFi U6 Pro,6,780000,4680000
-2024-01-14,Medellin,Dell Latitude 5540,2,4850000,9700000
-2024-06-09,Cali,Access Point Ubiquiti UniFi U6 Pro,3,780000,2340000
-2024-01-15,Bogota,Access Point Ubiquiti UniFi U6 Pro,9,780000,7020000
-2024-06-20,Cali,Monitor Dell 27 UltraSharp,4,1450000,5800000
-2024-06-26,Cali,Dell Latitude 5540,8,4850000,38800000
-2024-02-17,Medellin,Switch Cisco Catalyst 1300-24T,8,1850000,14800000
-2024-01-01,Cali,Switch Cisco Catalyst 1300-24T,6,1850000,11100000
-2024-05-20,Cali,HP EliteBook 840 G10,1,3920000,3920000
-2024-03-20,Medellin,Switch Cisco Catalyst 1300-24T,3,1850000,5550000
-2024-01-01,Cali,Access Point Ubiquiti UniFi U6 Pro,2,780000,1560000
-2024-05-01,Cali,Monitor Dell 27 UltraSharp,11,1450000,15950000
-2024-02-21,Medellin,Monitor Dell 27 UltraSharp,1,1450000,1450000
-2024-01-24,Cali,Dell Latitude 5540,3,4850000,14550000
-2024-04-12,Bucaramanga,Dell Latitude 5540,7,4850000,33950000
-2024-01-06,Cali,Switch Cisco Catalyst 1300-24T,11,1850000,20350000
-2024-02-29,Bogota,Monitor Dell 27 UltraSharp,9,1450000,13050000
-2024-02-09,Bucaramanga,Access Point Ubiquiti UniFi U6 Pro,6,780000,4680000
-2024-05-06,Medellin,Switch Cisco Catalyst 1300-24T,12,1850000,22200000
-2024-06-07,Medellin,Dell Latitude 5540,12,4850000,58200000
-2024-05-11,Barranquilla,Monitor Dell 27 UltraSharp,3,1450000,4350000
-2024-05-14,Bucaramanga,Monitor Dell 27 UltraSharp,1,1450000,1450000
-2024-06-24,Bucaramanga,HP EliteBook 840 G10,2,3920000,7840000
-2024-01-08,Bogota,HP EliteBook 840 G10,11,3920000,43120000
-2024-04-02,Bogota,Access Point Ubiquiti UniFi U6 Pro,8,780000,6240000
-2024-05-22,Bogota,Dell Latitude 5540,11,4850000,53350000
-2024-05-16,Medellin,Access Point Ubiquiti UniFi U6 Pro,5,780000,3900000
-2024-01-01,Barranquilla,Dell Latitude 5540,12,4850000,58200000
-2024-05-08,Bucaramanga,Dell Latitude 5540,11,4850000,53350000
-2024-05-14,Bogota,Access Point Ubiquiti UniFi U6 Pro,5,780000,3900000
-2024-01-20,Cali,HP EliteBook 840 G10,12,3920000,47040000
-2024-02-22,Medellin,Access Point Ubiquiti UniFi U6 Pro,8,780000,6240000
-2024-04-07,Bogota,Access Point Ubiquiti UniFi U6 Pro,11,780000,8580000
-2024-03-14,Bogota,Monitor Dell 27 UltraSharp,11,1450000,15950000
-2024-06-13,Medellin,Dell Latitude 5540,10,4850000,48500000
-2024-02-07,Cali,Switch Cisco Catalyst 1300-24T,11,1850000,20350000
-2024-06-26,Cali,Monitor Dell 27 UltraSharp,10,1450000,14500000
-2024-02-04,Bogota,Access Point Ubiquiti UniFi U6 Pro,1,780000,780000
-2024-05-04,Cali,Dell Latitude 5540,12,4850000,58200000
-2024-02-25,Barranquilla,Switch Cisco Catalyst 1300-24T,12,1850000,22200000
-2024-05-12,Cali,Access Point Ubiquiti UniFi U6 Pro,8,780000,6240000
+fecha,region,ciudad,categoria,producto,canal,unidades,valor_unitario_cop,valor_total_cop
+2026-01-02,Bogotá,Bogotá,Labios,Labial Matte Nude,Catálogo digital,2,42900,85800
+2026-01-02,Barranquilla,Barranquilla,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-01-04,Medellín,Medellín,Labios,Labial Matte Nude,WhatsApp,1,42900,42900
+2026-01-05,Bogotá,Bogotá,Rostro,Polvo Compacto Soft Matte,Catálogo digital,2,59900,119800
+2026-01-05,Cali,Cali,Labios,Labial Matte Nude,Asesora,2,42900,85800
+2026-01-06,Cali,Cali,Rostro,Polvo Compacto Soft Matte,WhatsApp,3,59900,179700
+2026-01-06,Medellín,Medellín,Labios,Labial Gloss Aurora,WhatsApp,4,39900,159600
+2026-01-08,Bucaramanga,Bucaramanga,Rostro,Iluminador Liquid Gold,Asesora,4,55900,223600
+2026-01-08,Bucaramanga,Bucaramanga,Accesorios,Set de Brochas Pro 12 Piezas,Asesora,1,99900,99900
+2026-01-11,Pereira,Pereira,Rostro,Iluminador Liquid Gold,Catálogo digital,1,55900,55900
+2026-01-12,Barranquilla,Barranquilla,Rostro,Corrector Radiant Cover,WhatsApp,3,49900,149700
+2026-01-12,Pereira,Pereira,Skincare,Protector Solar SPF 50 Daily,Catálogo digital,3,74900,224700
+2026-01-12,Cali,Cali,Rostro,Contorno Sculpt Stick,WhatsApp,1,52900,52900
+2026-01-14,Medellín,Medellín,Rostro,Iluminador Liquid Gold,Asesora,1,55900,55900
+2026-01-14,Medellín,Medellín,Accesorios,Espejo de Bolsillo,WhatsApp,3,19900,59700
+2026-01-14,Bucaramanga,Bucaramanga,Rostro,Rubor en Polvo Peach Blush,Asesora,4,45900,183600
+2026-01-16,Medellín,Medellín,Labios,Labial Líquido Rouge Noir,Asesora,3,45900,137700
+2026-01-16,Barranquilla,Barranquilla,Ojos,Máscara de Pestañas Volume Pro,Asesora,1,54900,54900
+2026-01-17,Bogotá,Bogotá,Rostro,Iluminador Liquid Gold,Catálogo digital,1,55900,55900
+2026-01-17,Medellín,Medellín,Ojos,Delineador Líquido Precision,Asesora,3,34900,104700
+2026-01-19,Bogotá,Bogotá,Ojos,Paleta de Ojos Sunset 12 Tonos,Asesora,3,119900,359700
+2026-01-19,Cali,Cali,Labios,Labial Matte Nude,Catálogo digital,5,42900,214500
+2026-01-20,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Catálogo digital,2,45900,91800
+2026-01-20,Pereira,Pereira,Labios,Labial Velvet Rose,WhatsApp,2,42900,85800
+2026-01-21,Bogotá,Bogotá,Skincare,Protector Solar SPF 50 Daily,Catálogo digital,4,74900,299600
+2026-01-22,Cali,Cali,Ojos,Paleta de Ojos Sunset 12 Tonos,WhatsApp,3,119900,359700
+2026-01-23,Medellín,Medellín,Ojos,Máscara de Pestañas Volume Pro,Asesora,6,54900,329400
+2026-01-24,Pereira,Pereira,Ojos,Delineador Líquido Precision,WhatsApp,4,34900,139600
+2026-01-26,Pereira,Pereira,Labios,Labial Velvet Rose,Catálogo digital,1,42900,42900
+2026-01-27,Medellín,Medellín,Labios,Labial Velvet Rose,Catálogo digital,2,42900,85800
+2026-01-27,Medellín,Medellín,Ojos,Delineador Líquido Precision,Asesora,2,34900,69800
+2026-01-28,Barranquilla,Barranquilla,Ojos,Delineador Líquido Precision,Asesora,1,34900,34900
+2026-01-28,Bucaramanga,Bucaramanga,Accesorios,Set de Brochas Pro 12 Piezas,Catálogo digital,4,99900,399600
+2026-02-01,Barranquilla,Barranquilla,Rostro,Corrector Radiant Cover,Catálogo digital,1,49900,49900
+2026-02-02,Medellín,Medellín,Labios,Labial Velvet Rose,Catálogo digital,2,42900,85800
+2026-02-02,Medellín,Medellín,Labios,Labial Líquido Rouge Noir,Catálogo digital,2,45900,91800
+2026-02-03,Barranquilla,Barranquilla,Accesorios,Set de Brochas Pro 12 Piezas,WhatsApp,12,99900,1198800
+2026-02-05,Bogotá,Bogotá,Accesorios,Espejo de Bolsillo,Asesora,4,19900,79600
+2026-02-07,Bogotá,Bogotá,Labios,Labial Velvet Rose,WhatsApp,4,42900,171600
+2026-02-08,Cali,Cali,Skincare,Agua Micelar Gentle Clean,Asesora,1,39900,39900
+2026-02-08,Cali,Cali,Skincare,Crema Hidratante Aqua Balance,WhatsApp,1,69900,69900
+2026-02-09,Cali,Cali,Labios,Labial Velvet Rose,Asesora,3,42900,128700
+2026-02-09,Cali,Cali,Rostro,Base Líquida Skin Glow,WhatsApp,3,79900,239700
+2026-02-11,Bogotá,Bogotá,Labios,Labial en Barra Coral Bloom,Catálogo digital,2,42900,85800
+2026-02-11,Bucaramanga,Bucaramanga,Labios,Labial Velvet Rose,Catálogo digital,1,42900,42900
+2026-02-11,Bogotá,Bogotá,Ojos,Sombra Duo Golden Hour,Asesora,1,49900,49900
+2026-02-14,Cali,Cali,Skincare,Protector Solar SPF 50 Daily,Catálogo digital,2,74900,149800
+2026-02-14,Bogotá,Bogotá,Skincare,Agua Micelar Gentle Clean,Catálogo digital,2,39900,79800
+2026-02-14,Bogotá,Bogotá,Labios,Labial Velvet Rose,Asesora,2,42900,85800
+2026-02-15,Cali,Cali,Labios,Labial Líquido Rouge Noir,Catálogo digital,2,45900,91800
+2026-02-15,Cali,Cali,Ojos,Delineador Líquido Precision,Asesora,8,34900,279200
+2026-02-16,Bogotá,Bogotá,Rostro,Base Líquida Skin Glow,Catálogo digital,2,79900,159800
+2026-02-16,Pereira,Pereira,Rostro,Corrector Radiant Cover,Asesora,2,49900,99800
+2026-02-17,Bucaramanga,Bucaramanga,Skincare,Crema Hidratante Aqua Balance,Asesora,3,69900,209700
+2026-02-18,Pereira,Pereira,Labios,Labial Gloss Aurora,Asesora,1,39900,39900
+2026-02-20,Medellín,Medellín,Accesorios,Espejo de Bolsillo,WhatsApp,2,19900,39800
+2026-02-20,Cali,Cali,Skincare,Crema Hidratante Aqua Balance,Catálogo digital,1,69900,69900
+2026-02-20,Barranquilla,Barranquilla,Ojos,Máscara de Pestañas Volume Pro,Asesora,2,54900,109800
+2026-02-21,Barranquilla,Barranquilla,Ojos,Delineador Líquido Precision,Asesora,4,34900,139600
+2026-02-23,Bogotá,Bogotá,Labios,Labial Líquido Rouge Noir,Catálogo digital,2,45900,91800
+2026-02-24,Barranquilla,Barranquilla,Ojos,Lápiz de Cejas Define,Asesora,6,32900,197400
+2026-02-27,Bogotá,Bogotá,Accesorios,Neceser LAUPRÉA,WhatsApp,1,34900,34900
+2026-03-01,Bogotá,Bogotá,Rostro,Contorno Sculpt Stick,Asesora,5,52900,264500
+2026-03-02,Medellín,Medellín,Rostro,Contorno Sculpt Stick,Catálogo digital,1,52900,52900
+2026-03-03,Bogotá,Bogotá,Ojos,Paleta de Ojos Sunset 12 Tonos,Asesora,5,119900,599500
+2026-03-05,Barranquilla,Barranquilla,Labios,Labial en Barra Coral Bloom,Catálogo digital,5,42900,214500
+2026-03-06,Cali,Cali,Skincare,Crema Hidratante Aqua Balance,WhatsApp,1,69900,69900
+2026-03-09,Pereira,Pereira,Ojos,Lápiz de Cejas Define,Catálogo digital,8,32900,263200
+2026-03-11,Barranquilla,Barranquilla,Labios,Labial Matte Nude,Catálogo digital,12,42900,514800
+2026-03-11,Medellín,Medellín,Rostro,Base Líquida Skin Glow,Asesora,1,79900,79900
+2026-03-13,Bogotá,Bogotá,Ojos,Delineador Líquido Precision,WhatsApp,3,34900,104700
+2026-03-13,Medellín,Medellín,Rostro,Contorno Sculpt Stick,Asesora,2,52900,105800
+2026-03-13,Barranquilla,Barranquilla,Labios,Labial Velvet Rose,Asesora,3,42900,128700
+2026-03-14,Bogotá,Bogotá,Ojos,Máscara de Pestañas Volume Pro,WhatsApp,1,54900,54900
+2026-03-14,Cali,Cali,Rostro,Corrector Radiant Cover,Asesora,3,49900,149700
+2026-03-15,Cali,Cali,Ojos,Lápiz de Cejas Define,Asesora,1,32900,32900
+2026-03-16,Cali,Cali,Rostro,Corrector Radiant Cover,Catálogo digital,4,49900,199600
+2026-03-17,Barranquilla,Barranquilla,Rostro,Corrector Radiant Cover,Asesora,1,49900,49900
+2026-03-18,Medellín,Medellín,Rostro,Polvo Compacto Soft Matte,Asesora,1,59900,59900
+2026-03-18,Bucaramanga,Bucaramanga,Rostro,Contorno Sculpt Stick,WhatsApp,1,52900,52900
+2026-03-18,Medellín,Medellín,Labios,Labial Gloss Aurora,Asesora,3,39900,119700
+2026-03-19,Barranquilla,Barranquilla,Labios,Labial Matte Nude,Catálogo digital,4,42900,171600
+2026-03-19,Bogotá,Bogotá,Ojos,Paleta de Ojos Sunset 12 Tonos,Catálogo digital,3,119900,359700
+2026-03-20,Bucaramanga,Bucaramanga,Labios,Labial en Barra Coral Bloom,Asesora,2,42900,85800
+2026-03-20,Bogotá,Bogotá,Labios,Labial Líquido Rouge Noir,Catálogo digital,2,45900,91800
+2026-03-21,Pereira,Pereira,Ojos,Delineador Líquido Precision,Catálogo digital,2,34900,69800
+2026-03-21,Barranquilla,Barranquilla,Labios,Labial Velvet Rose,Asesora,2,42900,85800
+2026-03-22,Bogotá,Bogotá,Labios,Labial Matte Nude,WhatsApp,2,42900,85800
+2026-03-23,Bogotá,Bogotá,Accesorios,Esponja Blender Duo,Catálogo digital,1,24900,24900
+2026-03-24,Pereira,Pereira,Accesorios,Rizador de Pestañas Rose Gold,Asesora,8,29900,239200
+2026-03-24,Medellín,Medellín,Ojos,Sombra Duo Golden Hour,Catálogo digital,2,49900,99800
+2026-03-25,Medellín,Medellín,Labios,Labial Gloss Aurora,WhatsApp,2,39900,79800
+2026-03-26,Cali,Cali,Accesorios,Espejo de Bolsillo,Asesora,12,19900,238800
+2026-03-27,Barranquilla,Barranquilla,Accesorios,Espejo de Bolsillo,Catálogo digital,1,19900,19900
+2026-03-27,Cali,Cali,Labios,Labial Velvet Rose,Asesora,2,42900,85800
+2026-03-27,Cali,Cali,Ojos,Sombra Duo Golden Hour,Catálogo digital,2,49900,99800
+2026-03-27,Medellín,Medellín,Labios,Labial Gloss Aurora,Catálogo digital,5,39900,199500
+2026-03-28,Bucaramanga,Bucaramanga,Skincare,Sérum Vitamina C Glow,Catálogo digital,2,89900,179800
+2026-03-28,Cali,Cali,Labios,Labial Matte Nude,Asesora,4,42900,171600
+2026-04-01,Medellín,Medellín,Skincare,Protector Solar SPF 50 Daily,Asesora,12,74900,898800
+2026-04-02,Medellín,Medellín,Skincare,Protector Solar SPF 50 Daily,WhatsApp,2,74900,149800
+2026-04-04,Cali,Cali,Labios,Labial Velvet Rose,Asesora,1,42900,42900
+2026-04-05,Pereira,Pereira,Accesorios,Neceser LAUPRÉA,Catálogo digital,1,34900,34900
+2026-04-05,Cali,Cali,Rostro,Contorno Sculpt Stick,Catálogo digital,3,52900,158700
+2026-04-06,Bogotá,Bogotá,Ojos,Delineador Líquido Precision,Catálogo digital,2,34900,69800
+2026-04-06,Cali,Cali,Skincare,Sérum Vitamina C Glow,WhatsApp,1,89900,89900
+2026-04-06,Bucaramanga,Bucaramanga,Rostro,Base Líquida Skin Glow,Asesora,1,79900,79900
+2026-04-08,Medellín,Medellín,Rostro,Contorno Sculpt Stick,Catálogo digital,3,52900,158700
+2026-04-08,Bucaramanga,Bucaramanga,Ojos,Lápiz de Cejas Define,Catálogo digital,4,32900,131600
+2026-04-09,Bogotá,Bogotá,Ojos,Sombra Duo Golden Hour,WhatsApp,3,49900,149700
+2026-04-11,Bogotá,Bogotá,Ojos,Máscara de Pestañas Volume Pro,Catálogo digital,1,54900,54900
+2026-04-11,Medellín,Medellín,Ojos,Máscara de Pestañas Volume Pro,Asesora,2,54900,109800
+2026-04-12,Bogotá,Bogotá,Rostro,Polvo Compacto Soft Matte,Asesora,2,59900,119800
+2026-04-13,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-04-13,Pereira,Pereira,Ojos,Sombra Duo Golden Hour,Catálogo digital,3,49900,149700
+2026-04-14,Pereira,Pereira,Ojos,Sombra Duo Golden Hour,Catálogo digital,1,49900,49900
+2026-04-14,Medellín,Medellín,Ojos,Sombra Duo Golden Hour,Catálogo digital,3,49900,149700
+2026-04-14,Cali,Cali,Accesorios,Esponja Blender Duo,Asesora,3,24900,74700
+2026-04-17,Medellín,Medellín,Ojos,Delineador Líquido Precision,Asesora,1,34900,34900
+2026-04-19,Pereira,Pereira,Accesorios,Espejo de Bolsillo,Catálogo digital,1,19900,19900
+2026-04-20,Barranquilla,Barranquilla,Labios,Labial Matte Nude,Catálogo digital,1,42900,42900
+2026-04-21,Barranquilla,Barranquilla,Skincare,Protector Solar SPF 50 Daily,Asesora,2,74900,149800
+2026-04-21,Bucaramanga,Bucaramanga,Accesorios,Set de Brochas Pro 12 Piezas,Catálogo digital,1,99900,99900
+2026-04-21,Cali,Cali,Rostro,Polvo Compacto Soft Matte,Asesora,2,59900,119800
+2026-04-23,Bogotá,Bogotá,Labios,Labial Velvet Rose,Asesora,2,42900,85800
+2026-04-25,Medellín,Medellín,Accesorios,Rizador de Pestañas Rose Gold,Asesora,10,29900,299000
+2026-04-25,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-05-02,Bucaramanga,Bucaramanga,Skincare,Agua Micelar Gentle Clean,WhatsApp,3,39900,119700
+2026-05-02,Medellín,Medellín,Rostro,Base Líquida Skin Glow,Catálogo digital,2,79900,159800
+2026-05-04,Cali,Cali,Skincare,Crema Hidratante Aqua Balance,Catálogo digital,2,69900,139800
+2026-05-07,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-05-07,Barranquilla,Barranquilla,Labios,Labial Líquido Rouge Noir,Catálogo digital,2,45900,91800
+2026-05-09,Bogotá,Bogotá,Ojos,Paleta de Ojos Sunset 12 Tonos,WhatsApp,6,119900,719400
+2026-05-11,Barranquilla,Barranquilla,Labios,Labial Matte Nude,Asesora,12,42900,514800
+2026-05-13,Medellín,Medellín,Ojos,Paleta de Ojos Sunset 12 Tonos,Asesora,3,119900,359700
+2026-05-14,Bogotá,Bogotá,Rostro,Iluminador Liquid Gold,Asesora,6,55900,335400
+2026-05-18,Pereira,Pereira,Labios,Labial Velvet Rose,Asesora,4,42900,171600
+2026-05-18,Bogotá,Bogotá,Labios,Labial Líquido Rouge Noir,WhatsApp,5,45900,229500
+2026-05-18,Bucaramanga,Bucaramanga,Ojos,Lápiz de Cejas Define,WhatsApp,8,32900,263200
+2026-05-18,Medellín,Medellín,Ojos,Sombra Duo Golden Hour,WhatsApp,2,49900,99800
+2026-05-19,Barranquilla,Barranquilla,Accesorios,Esponja Blender Duo,Asesora,4,24900,99600
+2026-05-20,Bucaramanga,Bucaramanga,Ojos,Lápiz de Cejas Define,Catálogo digital,5,32900,164500
+2026-05-21,Bucaramanga,Bucaramanga,Rostro,Polvo Compacto Soft Matte,Catálogo digital,1,59900,59900
+2026-05-21,Medellín,Medellín,Labios,Labial Matte Nude,Asesora,8,42900,343200
+2026-05-21,Bucaramanga,Bucaramanga,Ojos,Paleta de Ojos Sunset 12 Tonos,Catálogo digital,3,119900,359700
+2026-05-21,Barranquilla,Barranquilla,Rostro,Base Líquida Skin Glow,Asesora,1,79900,79900
+2026-05-21,Pereira,Pereira,Labios,Labial Matte Nude,Catálogo digital,2,42900,85800
+2026-05-25,Cali,Cali,Rostro,Polvo Compacto Soft Matte,WhatsApp,10,59900,599000
+2026-05-25,Medellín,Medellín,Rostro,Iluminador Liquid Gold,Asesora,2,55900,111800
+2026-05-27,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Catálogo digital,2,45900,91800
+2026-05-27,Pereira,Pereira,Ojos,Delineador Líquido Precision,Catálogo digital,5,34900,174500
+2026-05-28,Barranquilla,Barranquilla,Labios,Labial Gloss Aurora,WhatsApp,3,39900,119700
+2026-06-01,Bogotá,Bogotá,Labios,Labial Matte Nude,Asesora,2,42900,85800
+2026-06-03,Bogotá,Bogotá,Ojos,Lápiz de Cejas Define,Asesora,5,32900,164500
+2026-06-05,Pereira,Pereira,Labios,Labial Matte Nude,Catálogo digital,8,42900,343200
+2026-06-05,Cali,Cali,Accesorios,Neceser LAUPRÉA,Asesora,3,34900,104700
+2026-06-05,Medellín,Medellín,Skincare,Agua Micelar Gentle Clean,Catálogo digital,1,39900,39900
+2026-06-05,Bucaramanga,Bucaramanga,Rostro,Contorno Sculpt Stick,Asesora,1,52900,52900
+2026-06-06,Bogotá,Bogotá,Accesorios,Espejo de Bolsillo,Asesora,2,19900,39800
+2026-06-06,Barranquilla,Barranquilla,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-06-06,Bogotá,Bogotá,Labios,Labial Velvet Rose,Catálogo digital,1,42900,42900
+2026-06-06,Bucaramanga,Bucaramanga,Accesorios,Espejo de Bolsillo,WhatsApp,2,19900,39800
+2026-06-07,Bogotá,Bogotá,Ojos,Máscara de Pestañas Volume Pro,Catálogo digital,2,54900,109800
+2026-06-08,Bogotá,Bogotá,Accesorios,Rizador de Pestañas Rose Gold,WhatsApp,1,29900,29900
+2026-06-10,Pereira,Pereira,Accesorios,Espejo de Bolsillo,Asesora,2,19900,39800
+2026-06-11,Cali,Cali,Accesorios,Espejo de Bolsillo,Asesora,5,19900,99500
+2026-06-12,Barranquilla,Barranquilla,Ojos,Delineador Líquido Precision,Catálogo digital,1,34900,34900
+2026-06-12,Pereira,Pereira,Ojos,Máscara de Pestañas Volume Pro,WhatsApp,4,54900,219600
+2026-06-14,Medellín,Medellín,Labios,Labial Líquido Rouge Noir,Asesora,2,45900,91800
+2026-06-14,Bogotá,Bogotá,Rostro,Polvo Compacto Soft Matte,WhatsApp,3,59900,179700
+2026-06-14,Bogotá,Bogotá,Rostro,Corrector Radiant Cover,Asesora,8,49900,399200
+2026-06-15,Bucaramanga,Bucaramanga,Labios,Labial Gloss Aurora,Asesora,1,39900,39900
+2026-06-15,Pereira,Pereira,Rostro,Base Líquida Skin Glow,Catálogo digital,2,79900,159800
+2026-06-17,Cali,Cali,Labios,Labial Líquido Rouge Noir,Catálogo digital,1,45900,45900
+2026-06-17,Bogotá,Bogotá,Ojos,Sombra Duo Golden Hour,WhatsApp,2,49900,99800
+2026-06-17,Bogotá,Bogotá,Ojos,Delineador Líquido Precision,Catálogo digital,4,34900,139600
+2026-06-18,Medellín,Medellín,Labios,Labial Líquido Rouge Noir,Asesora,3,45900,137700
+2026-06-21,Medellín,Medellín,Labios,Labial en Barra Coral Bloom,Asesora,2,42900,85800
+2026-06-21,Barranquilla,Barranquilla,Ojos,Lápiz de Cejas Define,Asesora,2,32900,65800
+2026-06-22,Pereira,Pereira,Labios,Labial Gloss Aurora,Asesora,6,39900,239400
+2026-06-23,Bucaramanga,Bucaramanga,Ojos,Máscara de Pestañas Volume Pro,Asesora,3,54900,164700
+2026-06-24,Bogotá,Bogotá,Rostro,Contorno Sculpt Stick,WhatsApp,1,52900,52900
+2026-06-24,Medellín,Medellín,Rostro,Corrector Radiant Cover,WhatsApp,1,49900,49900
+2026-06-25,Bogotá,Bogotá,Rostro,Iluminador Liquid Gold,Asesora,4,55900,223600
+2026-06-28,Bucaramanga,Bucaramanga,Labios,Labial Gloss Aurora,Catálogo digital,5,39900,199500
+2026-07-02,Medellín,Medellín,Labios,Labial en Barra Coral Bloom,Asesora,1,42900,42900
+2026-07-03,Bucaramanga,Bucaramanga,Labios,Labial Velvet Rose,Catálogo digital,3,42900,128700
+2026-07-03,Cali,Cali,Labios,Labial Velvet Rose,WhatsApp,3,42900,128700
+2026-07-04,Pereira,Pereira,Rostro,Rubor en Polvo Peach Blush,WhatsApp,5,45900,229500
+2026-07-05,Medellín,Medellín,Rostro,Corrector Radiant Cover,Asesora,1,49900,49900
+2026-07-08,Bogotá,Bogotá,Ojos,Paleta de Ojos Sunset 12 Tonos,Asesora,5,119900,599500
+2026-07-11,Bogotá,Bogotá,Labios,Labial Matte Nude,Catálogo digital,5,42900,214500
+2026-07-12,Cali,Cali,Rostro,Corrector Radiant Cover,WhatsApp,2,49900,99800
+2026-07-12,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-07-13,Cali,Cali,Ojos,Sombra Duo Golden Hour,Asesora,1,49900,49900
+2026-07-14,Pereira,Pereira,Labios,Labial Gloss Aurora,Asesora,2,39900,79800
+2026-07-15,Pereira,Pereira,Skincare,Agua Micelar Gentle Clean,Asesora,2,39900,79800
+2026-07-15,Barranquilla,Barranquilla,Labios,Labial en Barra Coral Bloom,Asesora,1,42900,42900
+2026-07-17,Bogotá,Bogotá,Ojos,Lápiz de Cejas Define,Catálogo digital,6,32900,197400
+2026-07-18,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,WhatsApp,3,45900,137700
+2026-07-19,Bucaramanga,Bucaramanga,Labios,Labial Gloss Aurora,WhatsApp,4,39900,159600
+2026-07-21,Medellín,Medellín,Skincare,Agua Micelar Gentle Clean,Asesora,2,39900,79800
+2026-07-22,Pereira,Pereira,Accesorios,Espejo de Bolsillo,WhatsApp,2,19900,39800
+2026-07-22,Bucaramanga,Bucaramanga,Labios,Labial Velvet Rose,Asesora,1,42900,42900
+2026-07-22,Barranquilla,Barranquilla,Labios,Labial Matte Nude,WhatsApp,1,42900,42900
+2026-07-23,Cali,Cali,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-07-23,Bucaramanga,Bucaramanga,Rostro,Base Líquida Skin Glow,Catálogo digital,1,79900,79900
+2026-07-24,Cali,Cali,Ojos,Delineador Líquido Precision,Asesora,3,34900,104700
+2026-07-26,Bucaramanga,Bucaramanga,Labios,Labial Matte Nude,WhatsApp,3,42900,128700
+2026-07-27,Bucaramanga,Bucaramanga,Rostro,Contorno Sculpt Stick,Asesora,8,52900,423200
+2026-07-27,Bogotá,Bogotá,Ojos,Sombra Duo Golden Hour,Asesora,1,49900,49900
+2026-08-01,Cali,Cali,Accesorios,Set de Brochas Pro 12 Piezas,Asesora,1,99900,99900
+2026-08-01,Cali,Cali,Labios,Labial Velvet Rose,Catálogo digital,4,42900,171600
+2026-08-01,Cali,Cali,Rostro,Base Líquida Skin Glow,Asesora,5,79900,399500
+2026-08-02,Medellín,Medellín,Rostro,Iluminador Liquid Gold,Asesora,1,55900,55900
+2026-08-03,Bucaramanga,Bucaramanga,Rostro,Polvo Compacto Soft Matte,Catálogo digital,3,59900,179700
+2026-08-03,Pereira,Pereira,Rostro,Rubor en Polvo Peach Blush,Catálogo digital,2,45900,91800
+2026-08-03,Cali,Cali,Labios,Labial Velvet Rose,Catálogo digital,8,42900,343200
+2026-08-04,Bogotá,Bogotá,Rostro,Base Líquida Skin Glow,Asesora,2,79900,159800
+2026-08-04,Bogotá,Bogotá,Rostro,Base Líquida Skin Glow,Asesora,3,79900,239700
+2026-08-05,Bogotá,Bogotá,Ojos,Máscara de Pestañas Volume Pro,Asesora,6,54900,329400
+2026-08-05,Medellín,Medellín,Ojos,Lápiz de Cejas Define,Asesora,5,32900,164500
+2026-08-07,Pereira,Pereira,Skincare,Crema Hidratante Aqua Balance,Asesora,5,69900,349500
+2026-08-08,Medellín,Medellín,Skincare,Protector Solar SPF 50 Daily,Catálogo digital,2,74900,149800
+2026-08-09,Bogotá,Bogotá,Rostro,Contorno Sculpt Stick,Asesora,1,52900,52900
+2026-08-10,Bogotá,Bogotá,Rostro,Corrector Radiant Cover,WhatsApp,8,49900,399200
+2026-08-10,Cali,Cali,Rostro,Base Líquida Skin Glow,Asesora,5,79900,399500
+2026-08-10,Barranquilla,Barranquilla,Accesorios,Esponja Blender Duo,Catálogo digital,3,24900,74700
+2026-08-12,Bucaramanga,Bucaramanga,Rostro,Contorno Sculpt Stick,WhatsApp,3,52900,158700
+2026-08-12,Bucaramanga,Bucaramanga,Skincare,Agua Micelar Gentle Clean,WhatsApp,6,39900,239400
+2026-08-13,Medellín,Medellín,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-08-13,Barranquilla,Barranquilla,Labios,Labial Líquido Rouge Noir,Asesora,3,45900,137700
+2026-08-14,Bogotá,Bogotá,Ojos,Lápiz de Cejas Define,Asesora,12,32900,394800
+2026-08-16,Pereira,Pereira,Labios,Labial en Barra Coral Bloom,WhatsApp,2,42900,85800
+2026-08-16,Medellín,Medellín,Ojos,Delineador Líquido Precision,Asesora,5,34900,174500
+2026-08-16,Cali,Cali,Rostro,Polvo Compacto Soft Matte,Asesora,1,59900,59900
+2026-08-19,Medellín,Medellín,Rostro,Base Líquida Skin Glow,Catálogo digital,5,79900,399500
+2026-08-19,Pereira,Pereira,Labios,Labial Matte Nude,Catálogo digital,6,42900,257400
+2026-08-19,Bucaramanga,Bucaramanga,Labios,Labial Líquido Rouge Noir,WhatsApp,2,45900,91800
+2026-08-22,Medellín,Medellín,Accesorios,Esponja Blender Duo,Catálogo digital,3,24900,74700
+2026-08-22,Bogotá,Bogotá,Accesorios,Espejo de Bolsillo,Catálogo digital,1,19900,19900
+2026-08-22,Barranquilla,Barranquilla,Ojos,Sombra Duo Golden Hour,WhatsApp,3,49900,149700
+2026-08-25,Bogotá,Bogotá,Labios,Labial Líquido Rouge Noir,Catálogo digital,1,45900,45900
+2026-08-27,Medellín,Medellín,Rostro,Corrector Radiant Cover,Asesora,5,49900,249500
+2026-09-01,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Asesora,1,45900,45900
+2026-09-02,Medellín,Medellín,Rostro,Rubor en Polvo Peach Blush,Asesora,3,45900,137700
+2026-09-02,Bogotá,Bogotá,Accesorios,Espejo de Bolsillo,WhatsApp,3,19900,59700
+2026-09-03,Medellín,Medellín,Ojos,Sombra Duo Golden Hour,Catálogo digital,10,49900,499000
+2026-09-04,Barranquilla,Barranquilla,Rostro,Corrector Radiant Cover,Asesora,3,49900,149700
+2026-09-04,Bogotá,Bogotá,Accesorios,Set de Brochas Pro 12 Piezas,Asesora,2,99900,199800
+2026-09-06,Pereira,Pereira,Labios,Labial Matte Nude,WhatsApp,1,42900,42900
+2026-09-08,Bogotá,Bogotá,Accesorios,Neceser LAUPRÉA,Catálogo digital,2,34900,69800
+2026-09-08,Cali,Cali,Rostro,Iluminador Liquid Gold,Asesora,2,55900,111800
+2026-09-08,Bucaramanga,Bucaramanga,Accesorios,Rizador de Pestañas Rose Gold,Asesora,1,29900,29900
+2026-09-11,Cali,Cali,Rostro,Base Líquida Skin Glow,Asesora,2,79900,159800
+2026-09-12,Bogotá,Bogotá,Rostro,Iluminador Liquid Gold,Asesora,10,55900,559000
+2026-09-12,Cali,Cali,Accesorios,Esponja Blender Duo,Catálogo digital,3,24900,74700
+2026-09-14,Bogotá,Bogotá,Skincare,Sérum Vitamina C Glow,Asesora,3,89900,269700
+2026-09-14,Barranquilla,Barranquilla,Labios,Labial Velvet Rose,Asesora,1,42900,42900
+2026-09-14,Pereira,Pereira,Accesorios,Esponja Blender Duo,Catálogo digital,5,24900,124500
+2026-09-14,Bogotá,Bogotá,Accesorios,Espejo de Bolsillo,WhatsApp,2,19900,39800
+2026-09-15,Pereira,Pereira,Rostro,Polvo Compacto Soft Matte,Catálogo digital,4,59900,239600
+2026-09-15,Pereira,Pereira,Rostro,Base Líquida Skin Glow,Catálogo digital,5,79900,399500
+2026-09-18,Bucaramanga,Bucaramanga,Rostro,Iluminador Liquid Gold,Asesora,5,55900,279500
+2026-09-18,Cali,Cali,Rostro,Rubor en Polvo Peach Blush,Catálogo digital,1,45900,45900
+2026-09-18,Pereira,Pereira,Skincare,Sérum Vitamina C Glow,Catálogo digital,5,89900,449500
+2026-09-19,Cali,Cali,Ojos,Paleta de Ojos Sunset 12 Tonos,Asesora,1,119900,119900
+2026-09-20,Barranquilla,Barranquilla,Ojos,Delineador Líquido Precision,Asesora,3,34900,104700
+2026-09-21,Bogotá,Bogotá,Rostro,Polvo Compacto Soft Matte,Asesora,3,59900,179700
+2026-09-21,Cali,Cali,Ojos,Delineador Líquido Precision,Asesora,3,34900,104700
+2026-09-21,Medellín,Medellín,Ojos,Máscara de Pestañas Volume Pro,Asesora,2,54900,109800
+2026-09-22,Medellín,Medellín,Skincare,Agua Micelar Gentle Clean,Asesora,2,39900,79800
+2026-09-23,Barranquilla,Barranquilla,Accesorios,Rizador de Pestañas Rose Gold,Catálogo digital,1,29900,29900
+2026-09-23,Medellín,Medellín,Rostro,Contorno Sculpt Stick,WhatsApp,2,52900,105800
+2026-09-24,Cali,Cali,Accesorios,Espejo de Bolsillo,Asesora,1,19900,19900
+2026-09-24,Medellín,Medellín,Rostro,Base Líquida Skin Glow,Catálogo digital,6,79900,479400
+2026-09-25,Cali,Cali,Ojos,Máscara de Pestañas Volume Pro,Asesora,2,54900,109800
+2026-09-26,Barranquilla,Barranquilla,Rostro,Contorno Sculpt Stick,Catálogo digital,4,52900,211600
+2026-09-26,Bogotá,Bogotá,Accesorios,Espejo de Bolsillo,Catálogo digital,2,19900,39800
+2026-09-26,Medellín,Medellín,Rostro,Polvo Compacto Soft Matte,Asesora,10,59900,599000
+2026-09-26,Bogotá,Bogotá,Labios,Labial Matte Nude,Asesora,1,42900,42900
+2026-09-28,Bogotá,Bogotá,Rostro,Contorno Sculpt Stick,Asesora,3,52900,158700
+2026-10-02,Barranquilla,Barranquilla,Labios,Labial Líquido Rouge Noir,Asesora,4,45900,183600
+2026-10-03,Pereira,Pereira,Rostro,Rubor en Polvo Peach Blush,WhatsApp,4,45900,183600
+2026-10-04,Barranquilla,Barranquilla,Labios,Labial en Barra Coral Bloom,Catálogo digital,2,42900,85800
+2026-10-05,Medellín,Medellín,Rostro,Contorno Sculpt Stick,WhatsApp,4,52900,211600
+2026-10-07,Medellín,Medellín,Ojos,Sombra Duo Golden Hour,Catálogo digital,2,49900,99800
+2026-10-08,Medellín,Medellín,Rostro,Iluminador Liquid Gold,Catálogo digital,1,55900,55900
+2026-10-08,Bucaramanga,Bucaramanga,Rostro,Base Líquida Skin Glow,Catálogo digital,2,79900,159800
+2026-10-10,Cali,Cali,Rostro,Contorno Sculpt Stick,Catálogo digital,8,52900,423200
+2026-10-10,Bucaramanga,Bucaramanga,Rostro,Corrector Radiant Cover,WhatsApp,2,49900,99800
+2026-10-10,Bogotá,Bogotá,Ojos,Lápiz de Cejas Define,Catálogo digital,1,32900,32900
+2026-10-10,Bucaramanga,Bucaramanga,Rostro,Iluminador Liquid Gold,Asesora,8,55900,447200
+2026-10-12,Medellín,Medellín,Labios,Labial Velvet Rose,Catálogo digital,6,42900,257400
+2026-10-14,Cali,Cali,Labios,Labial Líquido Rouge Noir,Catálogo digital,6,45900,275400
+2026-10-15,Medellín,Medellín,Ojos,Máscara de Pestañas Volume Pro,Catálogo digital,2,54900,109800
+2026-10-15,Cali,Cali,Skincare,Sérum Vitamina C Glow,Asesora,2,89900,179800
+2026-10-16,Bucaramanga,Bucaramanga,Accesorios,Espejo de Bolsillo,Catálogo digital,1,19900,19900
+2026-10-17,Bogotá,Bogotá,Labios,Labial en Barra Coral Bloom,Catálogo digital,2,42900,85800
+2026-10-17,Cali,Cali,Rostro,Rubor en Polvo Peach Blush,Asesora,1,45900,45900
+2026-10-17,Bogotá,Bogotá,Labios,Labial Velvet Rose,Asesora,1,42900,42900
+2026-10-17,Barranquilla,Barranquilla,Rostro,Rubor en Polvo Peach Blush,Asesora,2,45900,91800
+2026-10-18,Barranquilla,Barranquilla,Rostro,Rubor en Polvo Peach Blush,WhatsApp,4,45900,183600
+2026-10-18,Bogotá,Bogotá,Labios,Labial Velvet Rose,Asesora,2,42900,85800
+2026-10-18,Cali,Cali,Skincare,Crema Hidratante Aqua Balance,Catálogo digital,1,69900,69900
+2026-10-19,Barranquilla,Barranquilla,Skincare,Sérum Vitamina C Glow,Asesora,2,89900,179800
+2026-10-22,Bucaramanga,Bucaramanga,Labios,Labial Líquido Rouge Noir,Catálogo digital,1,45900,45900
+2026-10-22,Pereira,Pereira,Ojos,Paleta de Ojos Sunset 12 Tonos,Catálogo digital,4,119900,479600
+2026-10-23,Cali,Cali,Labios,Labial en Barra Coral Bloom,Catálogo digital,1,42900,42900
+2026-10-23,Medellín,Medellín,Skincare,Sérum Vitamina C Glow,Catálogo digital,4,89900,359600
+2026-10-23,Cali,Cali,Accesorios,Set de Brochas Pro 12 Piezas,WhatsApp,1,99900,99900
+2026-10-24,Medellín,Medellín,Ojos,Lápiz de Cejas Define,Asesora,2,32900,65800
+2026-10-24,Bogotá,Bogotá,Accesorios,Rizador de Pestañas Rose Gold,Asesora,6,29900,179400
+2026-10-25,Barranquilla,Barranquilla,Labios,Labial Líquido Rouge Noir,Asesora,1,45900,45900
+2026-10-25,Bogotá,Bogotá,Ojos,Máscara de Pestañas Volume Pro,WhatsApp,2,54900,109800
+2026-10-26,Medellín,Medellín,Labios,Labial Velvet Rose,Catálogo digital,5,42900,214500
+2026-10-27,Bogotá,Bogotá,Ojos,Sombra Duo Golden Hour,Asesora,1,49900,49900
+2026-10-28,Cali,Cali,Rostro,Corrector Radiant Cover,WhatsApp,6,49900,299400
+2026-10-28,Bogotá,Bogotá,Rostro,Rubor en Polvo Peach Blush,Asesora,10,45900,459000
+2026-10-28,Bogotá,Bogotá,Labios,Labial en Barra Coral Bloom,Catálogo digital,2,42900,85800

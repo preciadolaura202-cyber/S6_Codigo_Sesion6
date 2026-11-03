@@ -30,12 +30,15 @@ from langchain.agents import create_agent
 from langgraph.graph import StateGraph, START, END
 
 from s6_llm_factory import crear_llm
-from core.tools import TOOLS_BASE, buscar_documentos, analizar_ventas
+from core.tools import TOOLS_BASE, buscar_documentos, consultar_catalogo, analizar_ventas
 from core.rag import obtener_motor
 from core.structured import ReporteEjecutivo
 
-NOMBRE_AGENTE = os.getenv("AGENT_NAME", "Asistente")
-ROL_AGENTE = os.getenv("AGENT_ROLE", "asistente de TechnoDistrib S.A.S.")
+NOMBRE_AGENTE = os.getenv("AGENT_NAME", "LAUPRÉA BEAUTY")
+ROL_AGENTE = os.getenv(
+    "AGENT_ROLE",
+    "asistente virtual de LAUPRÉA BEAUTY S.A.S., especializado en venta de maquillaje por catálogo",
+)
 
 
 def limpiar_pensamiento(texto: str) -> str:
@@ -66,30 +69,33 @@ class EstadoAgente(TypedDict):
 def nodo_coordinador(estado: EstadoAgente) -> dict:
     llm = crear_llm(temperature=0.0)
     instrucciones = """Clasifica la pregunta del usuario en UNA categoría:
-- documentos: preguntas sobre políticas, garantías, precios de catálogo,
-  indicadores de RRHH o el plan estratégico de la empresa.
+- documentos: preguntas sobre el catálogo de maquillaje, precios, tonos,
+  stock, políticas de envío, devoluciones, garantías, pedidos, equipo
+  comercial/RRHH o el plan estratégico de LAUPRÉA BEAUTY.
 - reporte: el usuario pide explícitamente un reporte, informe ejecutivo,
   resumen estructurado, o un "reporte de ventas".
 - analisis: el usuario pide analizar, comparar, investigar o evaluar
-  algo en profundidad.
+  algo en profundidad (ventas, productos más vendidos, tendencias).
 - conversacion: cualquier otra cosa (saludos, cálculos, clima, hora,
   preguntas generales).
 
 Responde SOLO con la categoría, en minúsculas, sin explicación ni puntuación.
 
 Ejemplos:
-"¿Qué garantía tiene el portátil Dell?" -> documentos
-"¿Cuál es la política de devoluciones?" -> documentos
+"¿Cuánto cuesta el labial Velvet Rose?" -> documentos
+"¿Cuál es la política de envíos y devoluciones?" -> documentos
+"Muéstrame la tabla de productos y stock" -> documentos
+"¿Qué productos tienen stock bajo?" -> documentos
 "Genera un reporte ejecutivo de ventas" -> reporte
-"Necesito un informe ejecutivo de la situación de RRHH" -> reporte
-"Dame un resumen estructurado del negocio" -> reporte
+"Necesito un informe ejecutivo del catálogo" -> reporte
+"Dame un resumen estructurado de la situación de LAUPRÉA" -> reporte
 "Analiza el desempeño de ventas por región" -> analisis
 "Compara las ventas de Bogotá y Medellín y saca conclusiones" -> analisis
-"Investiga qué está pasando con la rotación de personal" -> analisis
+"¿Cuáles son los productos más vendidos del mes?" -> analisis
+"Investiga qué categoría está creciendo más" -> analisis
 "Hola, ¿cómo estás?" -> conversacion
 "¿Cuánto es 45 * 12?" -> conversacion
-"¿Qué hora es en Bogotá?" -> conversacion
-"¿Cuáles fueron las ventas totales de mayo?" -> conversacion"""
+"¿Qué hora es en Bogotá?" -> conversacion"""
     resp = llm.invoke([
         SystemMessage(content=instrucciones),
         HumanMessage(content=estado["entrada_usuario"]),
@@ -116,8 +122,14 @@ def router(estado: EstadoAgente) -> Literal["conversacion", "documentos", "repor
 def nodo_conversacion(estado: EstadoAgente) -> dict:
     llm = crear_llm()
     system_prompt = f"""Eres {NOMBRE_AGENTE}, un {ROL_AGENTE}.
-Responde siempre en español, claro y directo.
-Usa tus herramientas cuando las necesites en vez de inventar datos."""
+Ayudas a clientas, asesoras y al equipo de LAUPRÉA BEAUTY con el
+catálogo de maquillaje, precios, stock, envíos, devoluciones y ventas.
+Responde siempre en español, claro, cálido y directo.
+Usa tus herramientas cuando las necesites en vez de inventar datos:
+- buscar_documentos para políticas, pedidos y documentos internos.
+- consultar_catalogo para precios, tonos y existencias.
+- analizar_ventas para cifras, tendencias y productos más vendidos.
+Nunca inventes precios, stock ni políticas."""
     agente = create_agent(model=llm, tools=TOOLS_BASE, system_prompt=system_prompt)
     resultado = agente.invoke({
         "messages": estado["historial"] + [HumanMessage(content=estado["entrada_usuario"])]
@@ -131,19 +143,25 @@ Usa tus herramientas cuando las necesites en vez de inventar datos."""
 def nodo_documentos(estado: EstadoAgente) -> dict:
     motor = obtener_motor()
     contexto, fuentes = motor.buscar(estado["entrada_usuario"])
+    catalogo_actual = consultar_catalogo.invoke({"categoria": "", "solo_stock_bajo": False})
+    fuentes = sorted(set(fuentes + ["05_catalogo_productos.csv"]))
 
     llm = crear_llm(temperature=0.2)
     prompt = ChatPromptTemplate.from_messages([
-        ("system", f"""Eres {NOMBRE_AGENTE}, asistente de TechnoDistrib S.A.S.
+        ("system", f"""Eres {NOMBRE_AGENTE}, asistente de LAUPRÉA BEAUTY S.A.S.,
+una empresa que vende maquillaje, skincare y accesorios por catálogo.
 Responde ÚNICAMENTE basándote en el contexto de los documentos internos
-proporcionado. Si la información no está en el contexto, dilo claramente
-en vez de inventar. Cita el archivo/página cuando sea posible.
-Responde en español, claro y profesional."""),
-        ("human", "Contexto de los documentos internos:\n{contexto}\n\nPregunta: {pregunta}"),
+y en el catálogo actual proporcionado. Si la información no está en el
+contexto, dilo claramente en vez de inventar. Cita el archivo/página
+cuando sea posible. Responde en español, claro, cálido y profesional."""),
+        ("human", "Contexto de los documentos internos:\n{contexto}\n\n"
+                  "Catálogo actual (precios y stock):\n{catalogo}\n\n"
+                  "Pregunta: {pregunta}"),
     ])
     chain = prompt | llm | StrOutputParser()
     respuesta = chain.invoke({
         "contexto": contexto or "(no se encontró contexto relevante)",
+        "catalogo": catalogo_actual,
         "pregunta": estado["entrada_usuario"],
     })
     return {"respuesta_final": limpiar_pensamiento(respuesta), "fuentes": fuentes}
@@ -156,10 +174,11 @@ def nodo_analisis(estado: EstadoAgente) -> dict:
     print("  🔍 [INVESTIGADOR] Recopilando información...")
     agente_investigador = create_agent(
         model=crear_llm(temperature=0.3),
-        tools=[buscar_documentos, analizar_ventas],
-        system_prompt="""Eres un investigador. Usa tus herramientas para
-recopilar datos reales relevantes a la pregunta ANTES de concluir nada.
-Sé concreto. Responde en español, en lista de puntos clave.""",
+        tools=[buscar_documentos, consultar_catalogo, analizar_ventas],
+        system_prompt="""Eres un investigador del negocio de LAUPRÉA BEAUTY,
+una marca que vende maquillaje por catálogo. Usa tus herramientas para
+recopilar datos reales de ventas, catálogo, stock y políticas ANTES de
+concluir nada. Sé concreto. Responde en español, en lista de puntos clave.""",
     )
     investigacion = limpiar_pensamiento(agente_investigador.invoke({
         "messages": [HumanMessage(content=f"Investiga sobre: {estado['entrada_usuario']}")]
@@ -167,18 +186,20 @@ Sé concreto. Responde en español, en lista de puntos clave.""",
 
     print("  📊 [ANALISTA] Analizando información...")
     analisis = limpiar_pensamiento(crear_llm(temperature=0.4).invoke([
-        SystemMessage(content="""Eres un analista crítico. Extrae lo más
-importante, identifica riesgos u oportunidades, y prioriza los hallazgos.
-Responde en español, estructurado."""),
+        SystemMessage(content="""Eres un analista comercial de una marca de
+maquillaje vendida por catálogo. Extrae lo más importante, identifica
+riesgos u oportunidades (stock, categorías, regiones, canales) y prioriza
+los hallazgos. Responde en español, estructurado."""),
         HumanMessage(content=f"Pregunta: {estado['entrada_usuario']}\n\n"
                               f"Información recopilada:\n{investigacion}\n\nAnaliza y concluye."),
     ]).content)
 
     print("  ✍️  [REDACTOR] Redactando respuesta final...")
     redaccion = limpiar_pensamiento(crear_llm(temperature=0.5).invoke([
-        SystemMessage(content=f"""Eres {NOMBRE_AGENTE}. Toma el análisis
-recibido y conviértelo en una respuesta final clara y bien organizada
-para el usuario. Responde en español."""),
+        SystemMessage(content=f"""Eres {NOMBRE_AGENTE}, asesora experta de
+LAUPRÉA BEAUTY. Toma el análisis recibido y conviértelo en una respuesta
+final clara, cálida y bien organizada para la clienta o el equipo. Responde
+en español."""),
         HumanMessage(content=f"Pregunta original: {estado['entrada_usuario']}\n\n"
                               f"Análisis:\n{analisis}\n\nRedacta la respuesta final."),
     ]).content)
@@ -195,21 +216,29 @@ def nodo_reporte(estado: EstadoAgente) -> dict:
     # modelo distinto solo para este nodo — por defecto, gpt-oss-120b.
     modelo_estructurado = os.getenv("GROQ_MODEL_ESTRUCTURADO", "openai/gpt-oss-120b")
     llm_estructurado = crear_llm(temperature=0.4, modelo=modelo_estructurado).with_structured_output(ReporteEjecutivo)
-    datos_ventas = analizar_ventas.invoke({"agrupar_por": "region"})
+    datos_categoria = analizar_ventas.invoke({"agrupar_por": "categoria"})
+    datos_region = analizar_ventas.invoke({"agrupar_por": "region"})
+    datos_stock = consultar_catalogo.invoke({"categoria": "", "solo_stock_bajo": True})
+    datos = (
+        f"VENTAS POR CATEGORÍA\n{datos_categoria}\n\n"
+        f"VENTAS POR REGIÓN\n{datos_region}\n\n"
+        f"PRODUCTOS CON STOCK BAJO O AGOTADO\n{datos_stock}"
+    )
 
     prompt = ChatPromptTemplate.from_messages([
-        ("system", """Genera un reporte ejecutivo de TechnoDistrib S.A.S.
-basado en los datos disponibles. Sé específico y accionable.
+        ("system", """Genera un reporte ejecutivo de LAUPRÉA BEAUTY S.A.S.,
+una empresa que vende maquillaje, skincare y accesorios por catálogo.
+Basa el reporte en los datos disponibles. Sé específico y accionable.
 Responde en español."""),
         ("human", "Solicitud: {solicitud}\n\nDatos disponibles:\n{datos}"),
     ])
     chain = prompt | llm_estructurado
     reporte: ReporteEjecutivo = chain.invoke({
         "solicitud": estado["entrada_usuario"],
-        "datos": datos_ventas,
+        "datos": datos,
     })
 
-    salida = f"📋 REPORTE EJECUTIVO — TechnoDistrib S.A.S.\n\n{reporte.resumen_ejecutivo}\n"
+    salida = f"📋 REPORTE EJECUTIVO — LAUPRÉA BEAUTY S.A.S.\n\n{reporte.resumen_ejecutivo}\n"
     if reporte.alertas:
         salida += "\nALERTAS:\n"
         for a in reporte.alertas:
