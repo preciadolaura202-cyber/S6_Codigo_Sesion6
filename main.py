@@ -49,26 +49,30 @@ NOMBRE_AGENTE = os.getenv("AGENT_NAME", "LAUPRÉA BEAUTY")
 app = FastAPI(
     title=f"API — {NOMBRE_AGENTE}",
     description=f"""
-## Asistente Inteligente: {NOMBRE_AGENTE}
+## Asistente Inteligente: {NOMBRE_AGENTE} ✨
 
-API REST del asistente virtual de **LAUPRÉA BEAUTY**, una empresa que vende
-maquillaje, skincare y accesorios por catálogo. Consulta productos, precios,
-stock, pedidos y políticas, o genera análisis y reportes de ventas.
+API REST del asistente virtual oficial y analítica de **LAUPRÉA BEAUTY S.A.S.**,
+marca de maquillaje, skincare y accesorios de belleza por catálogo, fundada y diseñada
+por **Laura Jimena Quiroz Preciado**.
+
+Consulta catálogo en tiempo real, precios, stock, pedidos y políticas comerciales (RAG),
+o genera análisis estratégicos de ventas y reportes ejecutivos estructurados.
 
 ### Endpoints disponibles:
-- **POST /chat** — Conversar con el agente (con memoria por sesión)
-- **POST /agent** — Ejecutar tareas específicas con contexto
-- **GET /health** — Verificar estado del servicio
-- **GET /health/detail** — Estado detallado con herramientas
+- **POST /chat** — Conversar con el agente (con memoria, RAG, multiagente y salida estructurada)
+- **POST /agent** — Ejecutar tareas específicas con contexto adicional
+- **GET /health** — Verificar estado básico del servicio
+- **GET /health/detail** — Estado detallado con herramientas y proveedor activo
+- **DELETE /chat/{{session_id}}** — Limpiar memoria de conversación
 
 ### Documentación:
 - Swagger UI: `/docs`
 - ReDoc: `/redoc`
     """,
-    version="1.0.0",
-    # ✏️ MODIFICA AQUÍ: cambia los metadatos
+    version="1.2.0",
+    # ✏️ Metadata del proyecto
     contact={
-        "name":  "LAUPRÉA BEAUTY",
+        "name":  "Laura Jimena Quiroz Preciado — LAUPRÉA BEAUTY",
         "email": "soporte@lauprea.com",
     },
     license_info={

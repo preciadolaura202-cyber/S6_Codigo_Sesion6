@@ -15,6 +15,10 @@ from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 import requests

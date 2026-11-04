@@ -4,7 +4,14 @@
 
 ## Descripción
 
-LAUPRÉA BEAUTY es una marca que vende maquillaje por catálogo a través de asesoras y canales digitales. Este agente responde consultas de clientas y del equipo comercial sobre catálogo, precios, stock, envíos, devoluciones y pedidos, y además analiza las ventas y genera reportes ejecutivos.
+**LAUPRÉA BEAUTY** es una marca de cosméticos, maquillaje y skincare comercializada por catálogo a través de asesoras de belleza y canales digitales, creada y concebida por **Laura Jimena Quiroz Preciado**. Este proyecto nace de su visión de fusionar el desarrollo web frontend con un diseño visual estético, femenino, sofisticado y funcional.
+
+Este agente de IA actúa como **Asesora Oficial de Belleza y Analítica Comercial**:
+- 💄 **Catálogo & Skincare en tiempo real:** precios en COP, tonos, existencias y stock crítico mediante búsqueda híbrida RAG.
+- 🚚 **Gestión de Pedidos & Políticas:** tiempos de envío, transportadoras (Servientrega, Envía, Coordinadora, Interrapidísimo), garantías y devoluciones.
+- 📊 **Inteligencia Comercial:** equipo multiagente (Investigador → Analista → Redactor) para diagnosticar ventas por región, canal y categoría.
+- 📋 **Reportes Ejecutivos:** generación estructurada validada con Pydantic para toma de decisiones directivas.
+- ✨ **Experiencia de Usuario:** interfaz web moderna de alta gama con renderizado Markdown, soporte móvil, partículas cosméticas y diseño glassmorphism de lujo.
 
 ## 🚀 Demo en vivo
 

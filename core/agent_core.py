@@ -16,7 +16,13 @@ servidor y se reutiliza en todas las peticiones.
 """
 
 import os
+import sys
 from dotenv import load_dotenv
+
+for _stream in (sys.stdout, sys.stderr):
+    if hasattr(_stream, "reconfigure"):
+        _stream.reconfigure(encoding="utf-8", errors="replace")
+
 from langchain_community.chat_message_histories import ChatMessageHistory
 
 from core.graph import construir_grafo

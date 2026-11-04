@@ -3,44 +3,55 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LAUPRÉA BEAUTY | Asistente</title>
+  <title>LAUPRÉA BEAUTY | Asistente Virtual &amp; Analítica</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- Markdown parser para renderizado enriquecido -->
+  <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+
   <style>
     :root {
-      --bg-base: #090711;
-      --bg-panel: rgba(15, 13, 25, 0.96);
-      --bg-elevated: rgba(255, 255, 255, 0.045);
-      --border-color: rgba(222, 190, 255, 0.11);
-      --border-strong: rgba(244, 190, 230, 0.2);
+      --bg-base: #0a0714;
+      --bg-panel: rgba(18, 14, 29, 0.94);
+      --bg-card: rgba(28, 22, 45, 0.88);
+      --bg-elevated: rgba(255, 255, 255, 0.05);
+      --bg-elevated-hover: rgba(255, 255, 255, 0.09);
 
-      --text-main: #f1f5f9;
+      --border-color: rgba(244, 190, 230, 0.14);
+      --border-strong: rgba(244, 190, 230, 0.32);
+
+      --text-main: #f8fafc;
       --text-soft: #cbd5e1;
-      --text-muted: #8b98ad;
+      --text-muted: #94a3b8;
 
-      --accent-pink: #f58acb;
-      --accent-fuchsia: #e84ba8;
-      --accent-purple: #a66af5;
-      --accent-blue: #7c9cff;
+      --accent-pink: #f68ecb;
+      --accent-fuchsia: #ec4899;
+      --accent-rose: #f43f5e;
+      --accent-purple: #a855f7;
+      --accent-gold: #fbd38d;
+      --accent-cyan: #38bdf8;
       --success: #34d399;
 
       --gradient: linear-gradient(135deg, var(--accent-fuchsia), var(--accent-purple));
-      --radius: 20px;
+      --gradient-gold: linear-gradient(135deg, #fbd38d, #f68ecb);
+      --gradient-card: linear-gradient(145deg, rgba(35, 26, 56, 0.7), rgba(20, 15, 33, 0.9));
+
       --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
       --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+      --radius: 20px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html, body { height: 100%; }
 
     body {
       background-color: var(--bg-base);
       background-image:
-        radial-gradient(55% 55% at 8% 8%, rgba(232, 75, 168, 0.17), transparent 72%),
-        radial-gradient(48% 50% at 94% 92%, rgba(124, 91, 220, 0.18), transparent 72%),
-        radial-gradient(35% 35% at 85% 5%, rgba(124, 156, 255, 0.07), transparent 75%);
+        radial-gradient(65% 60% at 10% 8%, rgba(236, 72, 153, 0.2), transparent 70%),
+        radial-gradient(55% 55% at 92% 90%, rgba(168, 85, 247, 0.22), transparent 72%),
+        radial-gradient(40% 40% at 85% 15%, rgba(251, 211, 141, 0.08), transparent 70%),
+        radial-gradient(45% 45% at 20% 85%, rgba(244, 63, 94, 0.12), transparent 70%);
       color: var(--text-main);
       font-family: var(--font-sans);
       display: flex;
@@ -56,32 +67,33 @@
     .app-container {
       position: relative;
       width: 100%;
-      max-width: 940px;
-      height: 90vh;
-      height: 90dvh;
-      max-height: 920px;
+      max-width: 980px;
+      height: 92vh;
+      height: 92dvh;
+      max-height: 940px;
       background: var(--bg-panel);
-      backdrop-filter: blur(18px);
-      -webkit-backdrop-filter: blur(18px);
-      border: 1px solid rgba(231, 190, 255, 0.15);
-      border-radius: 24px;
+      backdrop-filter: blur(22px);
+      -webkit-backdrop-filter: blur(22px);
+      border: 1px solid var(--border-color);
+      border-radius: 26px;
       display: flex;
       flex-direction: column;
       overflow: hidden;
       box-shadow:
-        0 24px 48px rgba(0, 0, 0, 0.55),
-        0 0 0 1px rgba(255, 255, 255, 0.02) inset,
-        0 0 55px rgba(232, 75, 168, 0.13), 0 0 100px rgba(124, 91, 220, 0.07);
+        0 28px 60px rgba(0, 0, 0, 0.65),
+        0 0 0 1px rgba(255, 255, 255, 0.04) inset,
+        0 0 65px rgba(236, 72, 153, 0.16),
+        0 0 110px rgba(168, 85, 247, 0.1);
     }
 
     .app-container::before {
       content: "";
       position: absolute;
       top: 0; left: 0; right: 0;
-      height: 2px;
-      background: linear-gradient(90deg, transparent, var(--accent-fuchsia), var(--accent-purple), transparent);
-      opacity: 0.8;
-      z-index: 3;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-fuchsia), var(--accent-gold), var(--accent-purple), transparent);
+      opacity: 0.9;
+      z-index: 5;
     }
 
     #heartsContainer {
@@ -94,77 +106,125 @@
 
     .heart-particle {
       position: absolute;
-      top: -20px;
+      top: -24px;
       user-select: none;
       pointer-events: none;
       animation: fall linear infinite;
     }
 
     @keyframes fall {
-      0%   { transform: translateY(0) rotate(0deg); opacity: 0.45; }
-      100% { transform: translateY(85vh) rotate(360deg); opacity: 0; }
+      0%   { transform: translateY(0) rotate(0deg) scale(0.9); opacity: 0.5; }
+      50%  { opacity: 0.7; }
+      100% { transform: translateY(92vh) rotate(360deg) scale(1.1); opacity: 0; }
     }
 
     header, .chat-log, .suggestions, .chat-input-area { position: relative; z-index: 2; }
 
+    /* ── HEADER ── */
     header {
       padding: 16px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 16px;
+      gap: 14px;
       border-bottom: 1px solid var(--border-color);
-      background: linear-gradient(110deg, rgba(25, 17, 35, 0.94), rgba(15, 13, 25, 0.92));
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
+      background: linear-gradient(110deg, rgba(28, 19, 43, 0.96), rgba(16, 12, 27, 0.95));
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
     }
 
-    .brand-group { display: flex; align-items: center; gap: 14px; min-width: 0; }
+    .brand-group { display: flex; align-items: center; gap: 14px; min-width: 0; cursor: pointer; }
 
     .brand-avatar {
       position: relative;
-      width: 44px;
-      height: 44px;
-      border-radius: 14px;
+      width: 46px;
+      height: 46px;
+      border-radius: 15px;
       background: var(--gradient);
       display: flex;
       align-items: center;
       justify-content: center;
       color: #fff;
-      font-weight: 700;
-      font-size: 15px;
-      letter-spacing: 0.04em;
-      box-shadow: 0 6px 18px rgba(236, 72, 153, 0.35);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+      font-weight: 800;
+      font-size: 16px;
+      letter-spacing: 0.05em;
+      box-shadow: 0 8px 22px rgba(236, 72, 153, 0.42);
+      border: 1px solid rgba(255, 255, 255, 0.28);
       flex-shrink: 0;
-      cursor: pointer;
       transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.3s;
     }
 
     .brand-avatar:hover {
       transform: translateY(-2px) scale(1.05);
-      box-shadow: 0 10px 26px rgba(236, 72, 153, 0.6), 0 0 30px rgba(168, 85, 247, 0.4);
+      box-shadow: 0 12px 28px rgba(236, 72, 153, 0.65), 0 0 35px rgba(168, 85, 247, 0.45);
     }
 
     .brand-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
 
+    .title-row { display: flex; align-items: center; gap: 8px; }
+
     .title {
-      font-weight: 700;
-      font-size: 15px;
+      font-weight: 800;
+      font-size: 16px;
       letter-spacing: 0.08em;
-      background: linear-gradient(135deg, #ffffff, var(--accent-pink));
+      background: linear-gradient(135deg, #ffffff 20%, var(--accent-pink) 60%, var(--accent-gold) 100%);
       -webkit-background-clip: text;
       background-clip: text;
       -webkit-text-fill-color: transparent;
       text-transform: uppercase;
     }
 
-    .subtitle {
-      font-family: var(--font-mono);
-      font-size: 11px;
-      color: var(--text-muted);
-      letter-spacing: 0.02em;
+    .badge-creator {
+      font-size: 10px;
+      font-weight: 600;
+      padding: 2px 7px;
+      border-radius: 999px;
+      background: rgba(236, 72, 153, 0.15);
+      border: 1px solid rgba(236, 72, 153, 0.35);
+      color: #fbcfe8;
+      letter-spacing: 0.03em;
     }
+
+    .subtitle {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      letter-spacing: 0.01em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-shrink: 0;
+    }
+
+    .icon-btn {
+      background: var(--bg-elevated);
+      border: 1px solid var(--border-color);
+      color: var(--text-soft);
+      padding: 7px 11px;
+      border-radius: 12px;
+      font-size: 12px;
+      font-weight: 500;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      font-family: var(--font-sans);
+    }
+
+    .icon-btn:hover {
+      background: rgba(236, 72, 153, 0.15);
+      border-color: rgba(236, 72, 153, 0.4);
+      color: #fff;
+      transform: translateY(-1px);
+    }
+
+    .icon-btn svg { width: 14px; height: 14px; stroke-width: 2; fill: none; stroke: currentColor; }
 
     .status {
       display: inline-flex;
@@ -177,7 +237,6 @@
       font-size: 11.5px;
       font-weight: 500;
       color: var(--text-soft);
-      flex-shrink: 0;
     }
 
     .status-dot {
@@ -189,20 +248,27 @@
       animation: pulse 2.2s infinite;
     }
 
+    .status-dot.offline {
+      background: #f87171;
+      animation: none;
+      box-shadow: none;
+    }
+
     @keyframes pulse {
       0%   { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.55); }
       70%  { box-shadow: 0 0 0 7px rgba(52, 211, 153, 0); }
       100% { box-shadow: 0 0 0 0 rgba(52, 211, 153, 0); }
     }
 
+    /* ── CHAT LOG ── */
     .chat-log {
       flex: 1;
       min-height: 0;
       overflow-y: auto;
-      padding: 28px 26px 20px;
+      padding: 26px 24px 20px;
       display: flex;
       flex-direction: column;
-      gap: 18px;
+      gap: 20px;
       scroll-behavior: smooth;
     }
 
@@ -213,23 +279,34 @@
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
-      padding: 4px 12px;
+      padding: 4px 14px;
       border: 1px solid var(--border-color);
       border-radius: 999px;
       background: var(--bg-elevated);
     }
 
-    .message { max-width: 85%; display: flex; gap: 10px; }
+    .message {
+      max-width: 86%;
+      display: flex;
+      gap: 12px;
+      animation: fadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(8px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
     .message.user  { align-self: flex-end; flex-direction: row-reverse; }
     .message.agent { align-self: flex-start; }
 
     .msg-avatar {
-      width: 30px;
-      height: 30px;
-      border-radius: 10px;
+      width: 32px;
+      height: 32px;
+      border-radius: 11px;
       background: var(--gradient);
       color: #fff;
-      font-size: 10.5px;
+      font-size: 11px;
       font-weight: 700;
       letter-spacing: 0.03em;
       display: flex;
@@ -237,78 +314,249 @@
       justify-content: center;
       flex-shrink: 0;
       margin-top: 2px;
-      box-shadow: 0 3px 10px rgba(236, 72, 153, 0.3);
+      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.35);
     }
 
-    .msg-body { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+    .message.user .msg-avatar {
+      background: linear-gradient(135deg, #a855f7, #6366f1);
+      box-shadow: 0 4px 12px rgba(168, 85, 247, 0.35);
+    }
+
+    .msg-body {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 0;
+    }
+
     .message.user .msg-body { align-items: flex-end; }
 
     .bubble {
-      padding: 13px 17px;
-      font-size: 14px;
-      line-height: 1.65;
-      border-radius: 16px;
-      white-space: pre-wrap;
+      position: relative;
+      padding: 15px 19px;
+      font-size: 14.5px;
+      line-height: 1.68;
+      border-radius: 18px;
       overflow-wrap: anywhere;
+      word-break: break-word;
     }
 
     .message.user .bubble {
       background: var(--gradient);
       color: #fff;
-      border-bottom-right-radius: 5px;
-      box-shadow: 0 6px 18px rgba(236, 72, 153, 0.22);
+      border-bottom-right-radius: 4px;
+      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.28);
+      border: 1px solid rgba(255, 255, 255, 0.2);
     }
 
     .message.agent .bubble {
-      background: var(--bg-elevated);
+      background: var(--gradient-card);
       border: 1px solid var(--border-color);
       color: var(--text-main);
-      border-top-left-radius: 5px;
+      border-top-left-radius: 4px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     }
 
-    .bubble b { color: var(--accent-pink); font-weight: 600; }
+    /* ── MARKDOWN STYLES DENTRO DE BUBBLE ── */
+    .bubble h1, .bubble h2, .bubble h3, .bubble h4 {
+      margin: 10px 0 6px;
+      color: #fff;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+    }
 
-    .meta {
+    .bubble h1 { font-size: 17px; color: var(--accent-pink); }
+    .bubble h2 { font-size: 15.5px; border-bottom: 1px solid rgba(244, 190, 230, 0.18); padding-bottom: 4px; }
+    .bubble h3 { font-size: 14.5px; color: #fbcfe8; }
+
+    .bubble p { margin: 6px 0; }
+    .bubble p:first-child { margin-top: 0; }
+    .bubble p:last-child { margin-bottom: 0; }
+
+    .bubble strong, .bubble b { color: var(--accent-pink); font-weight: 700; }
+    .bubble em, .bubble i { color: #fdf2f8; font-style: italic; }
+
+    .bubble ul, .bubble ol {
+      margin: 8px 0 8px 20px;
+      padding: 0;
+    }
+
+    .bubble li {
+      margin: 4px 0;
+      line-height: 1.6;
+    }
+
+    .bubble blockquote {
+      margin: 10px 0;
+      padding: 10px 16px;
+      background: rgba(236, 72, 153, 0.1);
+      border-left: 3px solid var(--accent-fuchsia);
+      border-radius: 0 12px 12px 0;
+      font-style: italic;
+      color: #fce7f3;
+    }
+
+    .bubble table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 12.5px;
+      border-radius: 12px;
+      overflow: hidden;
+      background: rgba(15, 11, 25, 0.65);
+      border: 1px solid rgba(244, 190, 230, 0.2);
+    }
+
+    .bubble th {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.35), rgba(168, 85, 247, 0.35));
+      color: #ffffff;
+      padding: 9px 12px;
+      text-align: left;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      border-bottom: 1px solid rgba(244, 190, 230, 0.25);
+    }
+
+    .bubble td {
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      color: var(--text-soft);
+    }
+
+    .bubble tr:last-child td { border-bottom: none; }
+    .bubble tr:hover td { background: rgba(236, 72, 153, 0.07); }
+
+    .bubble code {
       font-family: var(--font-mono);
-      font-size: 10.5px;
-      color: var(--text-muted);
+      font-size: 12px;
+      padding: 2px 6px;
+      border-radius: 6px;
+      background: rgba(0, 0, 0, 0.45);
+      border: 1px solid rgba(244, 190, 230, 0.2);
+      color: var(--accent-gold);
+    }
+
+    .bubble pre {
+      margin: 10px 0;
+      padding: 12px 14px;
+      background: rgba(8, 6, 14, 0.85);
+      border: 1px solid rgba(244, 190, 230, 0.2);
+      border-radius: 12px;
+      overflow-x: auto;
+    }
+
+    .bubble pre code {
+      background: transparent;
+      border: none;
+      padding: 0;
+      color: #e2e8f0;
+    }
+
+    /* ── MESSAGE META & FOOTER ── */
+    .msg-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
       padding: 0 4px;
     }
 
-    .status-dot.online { background: var(--success); }
-    .status-dot.offline {
-      background: #f87171;
-      animation: none;
-      box-shadow: none;
+    .meta-group {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
     }
 
-    .message.system {
-      align-self: center;
-      max-width: 92%;
+    .meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--text-muted);
     }
 
-    .message.system .bubble {
-      background: rgba(248, 113, 113, 0.1);
-      border: 1px solid rgba(248, 113, 113, 0.32);
-      color: #fecaca;
-      font-size: 12.5px;
-      text-align: center;
+    .badge-mode {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      font-weight: 500;
+      padding: 2px 8px;
+      border-radius: 999px;
+      letter-spacing: 0.02em;
     }
 
+    .badge-mode.conversacion {
+      background: rgba(168, 85, 247, 0.18);
+      border: 1px solid rgba(168, 85, 247, 0.35);
+      color: #d8b4fe;
+    }
+
+    .badge-mode.documentos {
+      background: rgba(236, 72, 153, 0.18);
+      border: 1px solid rgba(236, 72, 153, 0.35);
+      color: #fbcfe8;
+    }
+
+    .badge-mode.analisis {
+      background: rgba(56, 189, 248, 0.18);
+      border: 1px solid rgba(56, 189, 248, 0.35);
+      color: #bae6fd;
+    }
+
+    .badge-mode.reporte {
+      background: rgba(251, 211, 141, 0.18);
+      border: 1px solid rgba(251, 211, 141, 0.35);
+      color: #fef08a;
+    }
+
+    .badge-fuente {
+      font-family: var(--font-mono);
+      font-size: 9.5px;
+      padding: 1px 6px;
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid var(--border-color);
+      color: var(--text-muted);
+    }
+
+    .copy-btn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--text-muted);
+      padding: 2px 7px;
+      border-radius: 8px;
+      font-size: 10.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: all 0.2s ease;
+      font-family: var(--font-sans);
+    }
+
+    .copy-btn:hover {
+      background: var(--bg-elevated);
+      border-color: var(--border-color);
+      color: var(--accent-pink);
+    }
+
+    .copy-btn svg { width: 12px; height: 12px; fill: none; stroke: currentColor; stroke-width: 2; }
+
+    /* ── TYPING INDICATOR ── */
     .message .typing {
       display: inline-flex;
       align-items: center;
-      gap: 5px;
-      padding: 15px 18px;
-      background: var(--bg-elevated);
-      border: 1px solid rgba(226, 190, 255, 0.13);
+      gap: 6px;
+      padding: 14px 18px;
+      background: var(--gradient-card);
+      border: 1px solid var(--border-color);
       border-radius: 17px;
-      border-top-left-radius: 5px;
+      border-top-left-radius: 4px;
     }
 
     .typing span {
-      width: 6px;
-      height: 6px;
+      width: 7px;
+      height: 7px;
       border-radius: 50%;
       background: var(--accent-pink);
       animation: typingBounce 1.2s infinite ease-in-out;
@@ -319,35 +567,28 @@
 
     @keyframes typingBounce {
       0%, 60%, 100% { transform: translateY(0); opacity: 0.45; }
-      30% { transform: translateY(-5px); opacity: 1; }
+      30% { transform: translateY(-6px); opacity: 1; }
     }
 
-    .send-btn:disabled {
-      opacity: 0.55;
-      cursor: not-allowed;
-      transform: none;
-      box-shadow: 0 4px 12px rgba(236, 72, 153, 0.2);
-      filter: none;
-    }
-
+    /* ── SUGGESTIONS ── */
     .suggestions {
       flex: 0 0 auto;
-      padding: 15px 24px 16px;
-      border-top: 1px solid rgba(231, 190, 255, 0.09);
-      background: linear-gradient(180deg, rgba(20, 16, 31, 0.96), rgba(14, 12, 23, 0.98));
-      box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.12);
+      padding: 14px 24px 15px;
+      border-top: 1px solid rgba(244, 190, 230, 0.1);
+      background: linear-gradient(180deg, rgba(22, 17, 34, 0.96), rgba(14, 11, 23, 0.98));
+      box-shadow: 0 -12px 35px rgba(0, 0, 0, 0.15);
     }
 
     .suggestions-label {
       display: flex;
       align-items: center;
-      gap: 9px;
+      gap: 8px;
       font-family: var(--font-mono);
       font-size: 10.5px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 11px;
+      margin-bottom: 10px;
     }
 
     .suggestions-label::before {
@@ -360,75 +601,67 @@
       gap: 10px;
       overflow-x: auto;
       overflow-y: hidden;
-      padding: 3px 3px 12px;
+      padding: 3px 3px 10px;
       scrollbar-width: thin;
-      scrollbar-color: rgba(232, 75, 168, 0.75) rgba(255, 255, 255, 0.07);
+      scrollbar-color: rgba(236, 72, 153, 0.7) rgba(255, 255, 255, 0.05);
       overscroll-behavior-x: contain;
       scroll-behavior: smooth;
       -webkit-overflow-scrolling: touch;
       cursor: grab;
     }
+
     .suggestions-row:active { cursor: grabbing; }
-    .suggestions-row::-webkit-scrollbar { height: 7px; }
-    .suggestions-row::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.07); border-radius: 20px; }
-    .suggestions-row::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--accent-fuchsia), var(--accent-purple)); border-radius: 20px; border: 1px solid rgba(255,255,255,.12); }
-    .suggestions-row::-webkit-scrollbar-thumb:hover { background: linear-gradient(90deg, #ff78c4, #b58aff); }
+    .suggestions-row::-webkit-scrollbar { height: 6px; }
+    .suggestions-row::-webkit-scrollbar-track { background: rgba(255, 255, 255, 0.05); border-radius: 20px; }
+    .suggestions-row::-webkit-scrollbar-thumb { background: linear-gradient(90deg, var(--accent-fuchsia), var(--accent-purple)); border-radius: 20px; }
 
     .chip {
       display: inline-flex;
       align-items: center;
-      gap: 8px;
+      gap: 7px;
       background: var(--bg-elevated);
       border: 1px solid var(--border-color);
       border-radius: 13px;
-      padding: 10px 15px;
+      padding: 9px 14px;
       font-size: 12.5px;
       font-weight: 500;
       color: var(--text-soft);
       cursor: pointer;
       white-space: nowrap;
       font-family: var(--font-sans);
-      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      transition: all 0.22s cubic-bezier(0.4, 0, 0.2, 1);
       flex: 0 0 auto;
-      box-shadow: 0 3px 12px rgba(0,0,0,.12);
-    }
-
-    .chip svg {
-      width: 15px;
-      height: 15px;
-      stroke: var(--accent-pink);
-      fill: none;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-      flex-shrink: 0;
+      box-shadow: 0 2px 8px rgba(0,0,0,.1);
     }
 
     .chip:hover {
-      border-color: rgba(244, 114, 182, 0.55);
+      border-color: rgba(236, 72, 153, 0.6);
       color: #fff;
-      background: rgba(236, 72, 153, 0.12);
-      box-shadow: 0 6px 20px rgba(236, 72, 153, 0.25);
+      background: rgba(236, 72, 153, 0.15);
+      box-shadow: 0 6px 18px rgba(236, 72, 153, 0.28);
       transform: translateY(-2px);
     }
 
+    .chip:active { transform: scale(0.97); }
+
+    /* ── INPUT AREA ── */
     .chat-input-area {
-      padding: 15px 22px 13px;
-      border-top: 1px solid rgba(231, 190, 255, 0.12);
-      background: rgba(13, 11, 21, 0.98);
+      padding: 15px 24px 14px;
+      border-top: 1px solid rgba(244, 190, 230, 0.12);
+      background: rgba(13, 10, 22, 0.98);
     }
 
     .input-row { display: flex; align-items: flex-end; gap: 12px; }
 
     textarea {
       flex: 1;
-      background: rgba(5, 5, 12, 0.58);
-      border: 1px solid rgba(226, 190, 255, 0.13);
+      background: rgba(6, 4, 13, 0.6);
+      border: 1px solid rgba(244, 190, 230, 0.16);
       border-radius: 17px;
       padding: 13px 18px;
       color: var(--text-main);
       font-family: var(--font-sans);
-      font-size: 14px;
+      font-size: 14.5px;
       line-height: 1.5;
       resize: none;
       max-height: 120px;
@@ -439,84 +672,220 @@
     textarea::placeholder { color: var(--text-muted); }
 
     textarea:focus {
-      border-color: rgba(236, 72, 153, 0.7);
-      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.13), 0 0 22px rgba(168, 85, 247, 0.08);
+      border-color: rgba(236, 72, 153, 0.75);
+      box-shadow: 0 0 0 3px rgba(236, 72, 153, 0.15), 0 0 25px rgba(168, 85, 247, 0.12);
     }
 
     .send-btn {
       background: var(--gradient);
       color: #fff;
       border: none;
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
+      width: 48px;
+      height: 48px;
+      border-radius: 15px;
       display: flex;
       align-items: center;
       justify-content: center;
       cursor: pointer;
-      box-shadow: 0 6px 16px rgba(236, 72, 153, 0.35);
-      transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.25s, filter 0.25s;
+      box-shadow: 0 6px 18px rgba(236, 72, 153, 0.4);
+      transition: transform 0.22s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.22s, filter 0.22s;
       flex-shrink: 0;
     }
 
     .send-btn:hover {
       transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(236, 72, 153, 0.55), 0 0 28px rgba(168, 85, 247, 0.4);
-      filter: brightness(1.08);
+      box-shadow: 0 10px 26px rgba(236, 72, 153, 0.6), 0 0 30px rgba(168, 85, 247, 0.4);
+      filter: brightness(1.1);
     }
 
-    .send-btn:active { transform: translateY(0) scale(0.97); }
+    .send-btn:active { transform: translateY(0) scale(0.96); }
+
+    .send-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+      filter: none;
+    }
 
     .hint {
-      margin-top: 9px;
+      margin-top: 8px;
       text-align: center;
       font-family: var(--font-mono);
-      font-size: 10.5px;
+      font-size: 10px;
       color: var(--text-muted);
     }
 
     kbd {
       font-family: var(--font-mono);
-      font-size: 10px;
+      font-size: 9.5px;
       padding: 1px 5px;
       border: 1px solid var(--border-strong);
       border-radius: 4px;
       background: var(--bg-elevated);
     }
 
-    .chip:focus-visible,
-    .send-btn:focus-visible,
-    .brand-avatar:focus-visible {
-      outline: 2px solid var(--accent-pink);
-      outline-offset: 2px;
+    /* ── MODAL "SOBRE LA MARCA" ── */
+    .modal-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(5, 3, 10, 0.78);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.25s ease;
     }
 
-    .chat-log::-webkit-scrollbar { width: 6px; }
-    .chat-log::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.1); border-radius: 3px; }
-    .chat-log::-webkit-scrollbar-thumb:hover { background: rgba(232, 75, 168, 0.55); }
-    .chat-log { scrollbar-color: rgba(232, 75, 168, 0.42) transparent; scrollbar-width: thin; }
+    .modal-overlay.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-    .message.agent .bubble { box-shadow: 0 8px 24px rgba(0,0,0,.12); }
-    .message.user .bubble { border: 1px solid rgba(255,255,255,.16); }
-    .chip:active { transform: scale(.97); }
+    .modal-card {
+      width: 100%;
+      max-width: 580px;
+      background: linear-gradient(150deg, rgba(32, 23, 50, 0.98), rgba(16, 12, 28, 0.98));
+      border: 1px solid var(--border-strong);
+      border-radius: 24px;
+      padding: 28px 30px;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.7), 0 0 45px rgba(236, 72, 153, 0.2);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+      transform: translateY(12px) scale(0.98);
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+    }
 
+    .modal-overlay.active .modal-card {
+      transform: translateY(0) scale(1);
+    }
+
+    .modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .modal-title-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .modal-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      background: var(--gradient);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      box-shadow: 0 4px 16px rgba(236, 72, 153, 0.4);
+    }
+
+    .modal-close {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 20px;
+      line-height: 1;
+      padding: 4px;
+      border-radius: 8px;
+      transition: color 0.2s;
+    }
+
+    .modal-close:hover { color: #fff; }
+
+    .modal-body {
+      font-size: 13.5px;
+      line-height: 1.7;
+      color: var(--text-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      max-height: 55vh;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .modal-body strong { color: var(--accent-pink); }
+
+    .modal-highlight {
+      padding: 12px 16px;
+      background: rgba(236, 72, 153, 0.1);
+      border-left: 3px solid var(--accent-fuchsia);
+      border-radius: 0 12px 12px 0;
+      font-size: 13px;
+    }
+
+    .modal-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin-top: 6px;
+    }
+
+    .modal-feature {
+      padding: 10px 12px;
+      background: rgba(255, 255, 255, 0.035);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+    }
+
+    .modal-feature h4 {
+      font-size: 12px;
+      color: #fff;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .modal-feature p {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin: 0;
+    }
+
+    /* Scrollbars */
+    .chat-log::-webkit-scrollbar, .modal-body::-webkit-scrollbar { width: 6px; }
+    .chat-log::-webkit-scrollbar-thumb, .modal-body::-webkit-scrollbar-thumb {
+      background: rgba(236, 72, 153, 0.4);
+      border-radius: 4px;
+    }
+    .chat-log::-webkit-scrollbar-track, .modal-body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+
+    /* ── RESPONSIVE ── */
     @media (max-width: 760px) {
       .app-container { max-width: 100%; }
-      .suggestions { padding-left: 18px; padding-right: 18px; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .header-actions .btn-text { display: none; }
     }
 
     @media (max-width: 600px) {
       body { padding: 0; }
       .app-container { height: 100dvh; max-height: none; border-radius: 0; border: none; }
-      header { padding: 14px 16px; }
-      .chat-log { padding: 20px 16px 14px; }
-      .suggestions { padding: 13px 14px 12px; }
-      .chip { padding: 9px 12px; font-size: 12px; }
+      header { padding: 12px 16px; }
+      .chat-log { padding: 18px 14px 14px; }
+      .suggestions { padding: 12px 14px 10px; }
+      .chip { padding: 8px 12px; font-size: 12px; }
       .chat-input-area { padding: 12px 14px 10px; }
       .message { max-width: 92%; }
       .status span { display: none; }
       .status { padding: 8px; }
       .hint { display: none; }
+      .badge-creator { display: none; }
     }
 
     @media (prefers-reduced-motion: reduce) {
@@ -530,17 +899,46 @@
 <div class="app-container">
   <div id="heartsContainer" aria-hidden="true"></div>
 
+  <!-- HEADER -->
   <header>
-    <div class="brand-group">
-      <div class="brand-avatar" title="LAUPRÉA BEAUTY" tabindex="0">LB</div>
+    <div class="brand-group" id="brandBtn" title="Ver historia de LAUPRÉA BEAUTY y Laura Quiroz">
+      <div class="brand-avatar" tabindex="0">LB</div>
       <div class="brand-info">
-        <div class="title">LAUPRÉA BEAUTY</div>
-        <div class="subtitle">Asistente Virtual &amp; Analítica</div>
+        <div class="title-row">
+          <div class="title">LAUPRÉA BEAUTY</div>
+          <span class="badge-creator">Laura Quiroz</span>
+        </div>
+        <div class="subtitle">Asistente Virtual &amp; Analítica Comercial</div>
       </div>
     </div>
-    <div class="status" id="statusBox" title="Estado del asistente"><i class="status-dot online" id="statusDot"></i><span id="statusText">Conectando…</span></div>
+
+    <div class="header-actions">
+      <!-- Botón sobre la creadora -->
+      <button type="button" class="icon-btn" id="storyBtn" title="Historia de la marca y creadora">
+        <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.5 9 9"/></svg>
+        <span class="btn-text">Creadora</span>
+      </button>
+
+      <!-- Botón sonido -->
+      <button type="button" class="icon-btn" id="soundBtn" title="Activar/Silenciar sonido de respuestas">
+        <span id="soundIcon">🔔</span>
+      </button>
+
+      <!-- Botón limpiar chat -->
+      <button type="button" class="icon-btn" id="clearBtn" title="Reiniciar conversación">
+        <svg viewBox="0 0 24 24"><polyline points="3 6 5 6 21 6"/><path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><line x1="10" y1="11" x2="10" y2="17"/><line x1="14" y1="11" x2="14" y2="17"/></svg>
+        <span class="btn-text">Nueva sesión</span>
+      </button>
+
+      <!-- Estado del asistente -->
+      <div class="status" id="statusBox" title="Estado del asistente">
+        <i class="status-dot online" id="statusDot"></i>
+        <span id="statusText">En línea</span>
+      </div>
+    </div>
   </header>
 
+  <!-- LOG DE CHAT -->
   <div class="chat-log" id="chatLog">
     <div class="day-divider">Hoy</div>
 
@@ -548,45 +946,118 @@
       <div class="msg-avatar">LB</div>
       <div class="msg-body">
         <div class="bubble">
-          ¡Hola, Laura! Soy tu asesora de <b>LAUPRÉA BEAUTY</b>. Puedo consultar el catálogo, precios, stock, envíos, devoluciones y pedidos, o generar reportes de ventas. ¿Qué deseas saber hoy?
+          ¡Hola! ✨ Te doy la más cordial bienvenida a <b>LAUPRÉA BEAUTY</b>, creada con orgullo y pasión por <b>Laura Jimena Quiroz Preciado</b>.<br><br>
+          Soy tu <b>Asesora Oficial de Belleza &amp; Concierge Cosmético</b>. Puedo asesorarte sobre:
+          <ul>
+            <li>💄 <b>Catálogo de Maquillaje &amp; Skincare:</b> precios, tonos y existencias en tiempo real.</li>
+            <li>📦 <b>Envíos, Políticas &amp; Pedidos:</b> rastreo con número de guía y garantías.</li>
+            <li>📊 <b>Inteligencia Comercial:</b> análisis de ventas regionales y canales por catálogo.</li>
+            <li>📋 <b>Reportes Ejecutivos:</b> informes estructurados con alertas y recomendaciones.</li>
+          </ul>
+          ¿En qué puedo ayudarte a brillar hoy? 🌸
         </div>
-        <div class="meta">Asistente · ahora</div>
+        <div class="msg-footer">
+          <div class="meta-group">
+            <span class="meta">Asistente · bienvenida</span>
+            <span class="badge-mode conversacion">💬 Bienvenida</span>
+          </div>
+          <button type="button" class="copy-btn" onclick="copyMessageText(this)">
+            <svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            <span>Copiar</span>
+          </button>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- SUGERENCIAS RÁPIDAS -->
   <div class="suggestions" id="suggestions">
-      <div class="suggestions-label">Sugerencias</div>
-      <div class="suggestions-row" id="suggestionsRow">
-        <button type="button" class="chip" data-prompt="Muéstrame el catálogo de labiales con precios y stock">
-          <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="3" y1="10" x2="21" y2="10"/><line x1="9" y1="4" x2="9" y2="20"/></svg>
-          Catálogo de labiales
-        </button>
-        <button type="button" class="chip" data-prompt="¿Qué productos tienen stock bajo o están agotados?">
-          <svg viewBox="0 0 24 24"><polyline points="3 17 9 11 13 15 21 6"/><polyline points="15 6 21 6 21 12"/></svg>
-          Stock bajo
-        </button>
-        <button type="button" class="chip" data-prompt="Analiza los productos más vendidos del mes">
-          <svg viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9.5 16.5 14 18.5 21 12 17 5.5 21 7.5 14 2 9.5 9 9"/></svg>
-          Productos más vendidos
-        </button>
-        <button type="button" class="chip" data-prompt="Genera un reporte ejecutivo de ventas">
-          <svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
-          Reporte de ventas
-        </button>
-        <button type="button" class="chip" data-prompt="Muéstrame el estado de los pedidos recientes">
-          <svg viewBox="0 0 24 24"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2"/><rect x="9" y="3" width="6" height="4" rx="1"/><line x1="9" y1="12" x2="15" y2="12"/><line x1="9" y1="16" x2="13" y2="16"/></svg>
-          Pedidos recientes
-        </button>
-      </div>
+    <div class="suggestions-label">Sugerencias recomendadas</div>
+    <div class="suggestions-row" id="suggestionsRow">
+      <button type="button" class="chip" data-prompt="Muéstrame el catálogo de labiales con sus tonos, precios y existencias">
+        💄 Catálogo de labiales
+      </button>
+      <button type="button" class="chip" data-prompt="¿Qué productos tienen stock bajo o están agotados?">
+        ⚠️ Stock bajo o crítico
+      </button>
+      <button type="button" class="chip" data-prompt="¿Cuáles son los productos más vendidos del mes y en qué regiones?">
+        📈 Productos más vendidos
+      </button>
+      <button type="button" class="chip" data-prompt="Genera un reporte ejecutivo de ventas y estado de catálogo">
+        📋 Reporte ejecutivo
+      </button>
+      <button type="button" class="chip" data-prompt="¿Quién creó LAUPRÉA BEAUTY y cuál es la historia de la marca?">
+        👑 Historia de Laura Quiroz
+      </button>
+      <button type="button" class="chip" data-prompt="¿Cuál es la política de envíos, costos y tiempos de entrega?">
+        🚚 Políticas de envío
+      </button>
+      <button type="button" class="chip" data-prompt="¿Cómo va el estado del pedido PED-2026-1207?">
+        📦 Rastrear pedido
+      </button>
+      <button type="button" class="chip" data-prompt="Recomiéndame una rutina de skincare y maquillaje para una ocasión especial">
+        ✨ Rutina de belleza
+      </button>
+    </div>
   </div>
 
+  <!-- CAJA DE ENTRADA -->
   <div class="chat-input-area">
     <div class="input-row">
-      <textarea rows="1" id="userInput" placeholder="Escribe un mensaje, pide una tabla o un gráfico..." aria-label="Mensaje"></textarea>
-      <button class="send-btn" id="sendBtn" title="Enviar" aria-label="Enviar">
-        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+      <textarea rows="1" id="userInput" placeholder="Escribe tu consulta sobre catálogo, productos, ventas o reportes..." aria-label="Mensaje"></textarea>
+      <button class="send-btn" id="sendBtn" title="Enviar mensaje" aria-label="Enviar">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
       </button>
+    </div>
+    <div class="hint">Presiona <kbd>Enter</kbd> para enviar o <kbd>Shift + Enter</kbd> para salto de línea</div>
+  </div>
+</div>
+
+<!-- MODAL: ACERCA DE LAUPRÉA & LAURA QUIROZ -->
+<div class="modal-overlay" id="modalStory" aria-hidden="true">
+  <div class="modal-card">
+    <div class="modal-header">
+      <div class="modal-title-group">
+        <div class="modal-avatar">LB</div>
+        <div>
+          <h3 style="margin:0; font-size:16px; color:#fff;">LAUPRÉA BEAUTY S.A.S.</h3>
+          <p style="margin:0; font-size:11px; color:var(--text-muted);">Creada y Fundada por Laura Jimena Quiroz Preciado</p>
+        </div>
+      </div>
+      <button type="button" class="modal-close" id="modalCloseBtn" aria-label="Cerrar modal">&times;</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="modal-highlight">
+        👑 <b>Visión de Laura Quiroz:</b> LAUPRÉA BEAUTY nació de una idea que Laura venía gestando desde proyectos previos, impulsada por el deseo de fusionar el <b>desarrollo web frontend</b> y la <b>tecnología de agentes de IA</b> con una experiencia visual estética, femenina, elegante y funcional.
+      </div>
+
+      <p>
+        LAUPRÉA BEAUTY se especializa en la comercialización de <b>maquillaje de alta gama, skincare y accesorios de belleza por catálogo</b> (a través de asesoras comerciales, canales digitales y WhatsApp).
+      </p>
+
+      <p>
+        Este asistente virtual es un sistema inteligente de última generación impulsado por <b>LangChain, LangGraph y FastAPI</b>, capaz de coordinar automáticamente 4 caminos especializados:
+      </p>
+
+      <div class="modal-grid">
+        <div class="modal-feature">
+          <h4>💬 Conversación</h4>
+          <p>Asesoría personalizada de belleza, memoria continua y herramientas útiles.</p>
+        </div>
+        <div class="modal-feature">
+          <h4>💄 Catálogo &amp; RAG</h4>
+          <p>Consultas en tiempo real sobre PDFs y CSVs internos de productos y políticas.</p>
+        </div>
+        <div class="modal-feature">
+          <h4>📊 Equipo Analista</h4>
+          <p>Trio multiagente (Investigador → Analista → Redactor) para ventas regionales.</p>
+        </div>
+        <div class="modal-feature">
+          <h4>📋 Reporte Estructurado</h4>
+          <p>Informes de dirección ejecutiva validados estrictamente con Pydantic.</p>
+        </div>
+      </div>
     </div>
   </div>
 </div>
@@ -599,8 +1070,16 @@
   const statusBox      = document.getElementById('statusBox');
   const statusDot      = document.getElementById('statusDot');
   const statusText     = document.getElementById('statusText');
-  const suggestions    = document.getElementById('suggestions');
   const suggestionsRow = document.getElementById('suggestionsRow');
+  const storyBtn       = document.getElementById('storyBtn');
+  const brandBtn       = document.getElementById('brandBtn');
+  const clearBtn       = document.getElementById('clearBtn');
+  const soundBtn       = document.getElementById('soundBtn');
+  const soundIcon      = document.getElementById('soundIcon');
+  const modalStory     = document.getElementById('modalStory');
+  const modalCloseBtn  = document.getElementById('modalCloseBtn');
+
+  let soundEnabled = true;
 
   const API_BASE = (location.protocol === 'file:' || !location.hostname)
     ? 'http://localhost:8000'
@@ -611,20 +1090,123 @@
     set(k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
   };
 
-  function newSessionId() {
-    return 'web_' + Math.random().toString(36).slice(2, 8) + Date.now().toString(36).slice(-4);
+  function generateSessionId() {
+    return 'lauprea_' + Math.random().toString(36).slice(2, 8) + '_' + Date.now().toString(36).slice(-4);
   }
 
-  const sessionId = store.get('laupreaSessionId', newSessionId());
+  let sessionId = store.get('laupreaSessionId', generateSessionId());
   store.set('laupreaSessionId', sessionId);
 
   let waiting = false;
+
+  // ── SINTETIZADOR DE SONIDO (Web Audio API) ──
+  function playChime() {
+    if (!soundEnabled) return;
+    try {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(880, ctx.currentTime); // A5
+      osc.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + 0.15); // E6
+
+      gain.gain.setValueAtTime(0.08, ctx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+
+      osc.start();
+      osc.stop(ctx.currentTime + 0.36);
+    } catch (e) {}
+  }
+
+  soundBtn.addEventListener('click', () => {
+    soundEnabled = !soundEnabled;
+    soundIcon.textContent = soundEnabled ? '🔔' : '🔕';
+    soundBtn.title = soundEnabled ? 'Sonido activado' : 'Sonido silenciado';
+  });
+
+  // ── MODAL HISTORIA ──
+  function openStoryModal() {
+    modalStory.classList.add('active');
+    modalStory.setAttribute('aria-hidden', 'false');
+  }
+
+  function closeStoryModal() {
+    modalStory.classList.remove('active');
+    modalStory.setAttribute('aria-hidden', 'true');
+  }
+
+  storyBtn.addEventListener('click', openStoryModal);
+  brandBtn.addEventListener('click', openStoryModal);
+  modalCloseBtn.addEventListener('click', closeStoryModal);
+  modalStory.addEventListener('click', (e) => {
+    if (e.target === modalStory) closeStoryModal();
+  });
+
+  // ── PARSER DE MARKDOWN RESILIENTE ──
+  function parseSimpleMarkdown(md) {
+    if (window.marked && typeof window.marked.parse === 'function') {
+      try {
+        return window.marked.parse(md);
+      } catch (err) {
+        console.warn('Error en marked.js, usando fallback:', err);
+      }
+    }
+
+    // Fallback robusto sin dependencias
+    let esc = md
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+
+    // Bloques de código
+    esc = esc.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
+
+    // Títulos
+    esc = esc.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+    esc = esc.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+    esc = esc.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+    // Citas blockquote
+    esc = esc.replace(/^\&gt; (.*$)/gim, '<blockquote>$1</blockquote>');
+
+    // Negrita y cursiva
+    esc = esc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    esc = esc.replace(/\*(.*?)\*/g, '<em>$1</em>');
+
+    // Listas desordenadas
+    esc = esc.replace(/^\s*[-•*]\s+(.*$)/gim, '<li>$1</li>');
+    esc = esc.replace(/(<li>[\s\S]*?<\/li>)/gim, '<ul>$1</ul>');
+
+    // Saltos de línea
+    esc = esc.replace(/\n\n/g, '<br><br>');
+    esc = esc.replace(/\n/g, '<br>');
+
+    return esc;
+  }
 
   function scrollToBottom() {
     chatLog.scrollTop = chatLog.scrollHeight;
   }
 
-  function addMessage(role, text, meta) {
+  // ── COPIAR MENSAJE ──
+  window.copyMessageText = function (btn) {
+    const bubble = btn.closest('.msg-body').querySelector('.bubble');
+    if (!bubble) return;
+    const textToCopy = bubble.innerText || bubble.textContent;
+    navigator.clipboard.writeText(textToCopy).then(() => {
+      const orig = btn.innerHTML;
+      btn.innerHTML = '<span>¡Copiado! ✨</span>';
+      setTimeout(() => { btn.innerHTML = orig; }, 2000);
+    }).catch(() => {});
+  };
+
+  function addMessage(role, rawContent, metaData) {
     const wrap = document.createElement('div');
     wrap.className = 'message ' + role;
 
@@ -640,13 +1222,65 @@
 
     const bubble = document.createElement('div');
     bubble.className = 'bubble';
-    bubble.textContent = text;
+
+    if (role === 'agent') {
+      bubble.innerHTML = parseSimpleMarkdown(rawContent);
+    } else {
+      bubble.textContent = rawContent;
+    }
     body.appendChild(bubble);
 
-    if (meta) {
+    // Footer de metadatos para mensajes del agente
+    if (role === 'agent' && metaData) {
+      const footer = document.createElement('div');
+      footer.className = 'msg-footer';
+
+      const metaGroup = document.createElement('div');
+      metaGroup.className = 'meta-group';
+
+      const timeEl = document.createElement('span');
+      timeEl.className = 'meta';
+      timeEl.textContent = metaData.hora || 'ahora';
+      metaGroup.appendChild(timeEl);
+
+      if (metaData.categoria) {
+        const catMap = {
+          conversacion: { text: '💬 Conversación', cls: 'conversacion' },
+          documentos:   { text: '💄 Catálogo Oficial', cls: 'documentos' },
+          analisis:     { text: '📊 Análisis Comercial', cls: 'analisis' },
+          reporte:      { text: '📋 Reporte Ejecutivo', cls: 'reporte' }
+        };
+        const catInfo = catMap[metaData.categoria] || { text: metaData.categoria, cls: 'conversacion' };
+        const modeBadge = document.createElement('span');
+        modeBadge.className = 'badge-mode ' + catInfo.cls;
+        modeBadge.textContent = catInfo.text;
+        metaGroup.appendChild(modeBadge);
+      }
+
+      if (metaData.fuentes && metaData.fuentes.length) {
+        metaData.fuentes.forEach(f => {
+          const fBadge = document.createElement('span');
+          fBadge.className = 'badge-fuente';
+          fBadge.textContent = '📄 ' + f.split('/').pop().split('\\').pop();
+          metaGroup.appendChild(fBadge);
+        });
+      }
+
+      footer.appendChild(metaGroup);
+
+      const copyBtn = document.createElement('button');
+      copyBtn.type = 'button';
+      copyBtn.className = 'copy-btn';
+      copyBtn.title = 'Copiar respuesta';
+      copyBtn.innerHTML = '<svg viewBox="0 0 24 24"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg><span>Copiar</span>';
+      copyBtn.addEventListener('click', function () { copyMessageText(this); });
+      footer.appendChild(copyBtn);
+
+      body.appendChild(footer);
+    } else if (role === 'user') {
       const metaEl = document.createElement('div');
       metaEl.className = 'meta';
-      metaEl.textContent = meta;
+      metaEl.textContent = new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' });
       body.appendChild(metaEl);
     }
 
@@ -711,6 +1345,35 @@
     }
   }
 
+  // ── REINICIAR CONVERSACIÓN ──
+  clearBtn.addEventListener('click', async () => {
+    if (!confirm('¿Deseas reiniciar la conversación y limpiar el historial?')) return;
+    try {
+      await fetch(API_BASE + '/chat/' + encodeURIComponent(sessionId), { method: 'DELETE' });
+    } catch (e) {}
+
+    sessionId = generateSessionId();
+    store.set('laupreaSessionId', sessionId);
+
+    // Limpia el chat y vuelve al saludo inicial
+    chatLog.innerHTML = `
+      <div class="day-divider">Hoy</div>
+      <div class="message agent">
+        <div class="msg-avatar">LB</div>
+        <div class="msg-body">
+          <div class="bubble">
+            ¡Conversación reiniciada! ✨ Soy tu asesora de <b>LAUPRÉA BEAUTY</b>, creada por <b>Laura Jimena Quiroz Preciado</b>.<br>
+            ¿Qué consulta sobre catálogo, stock, ventas o reportes deseas realizar hoy? 💄
+          </div>
+          <div class="msg-footer">
+            <span class="meta">Asistente · ahora</span>
+          </div>
+        </div>
+      </div>
+    `;
+    scrollToBottom();
+  });
+
   async function sendMessage(text) {
     const mensaje = (text || '').trim();
     if (!mensaje || waiting) return;
@@ -737,28 +1400,31 @@
 
       if (!res.ok) {
         const detalle = data.detail || raw.slice(0, 240) || 'No se pudo procesar la solicitud.';
-        addMessage('system', 'Error ' + res.status + ': ' + detalle);
+        addMessage('agent', '⚠️ **Error ' + res.status + ':** ' + detalle, {
+          hora: new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' }),
+          categoria: 'conversacion'
+        });
         return;
       }
+
+      playChime();
 
       const hora = new Date(data.timestamp || Date.now()).toLocaleTimeString('es-CO', {
         hour: '2-digit',
         minute: '2-digit'
       });
-      const etiquetas = {
-        conversacion: 'conversación',
-        documentos: 'catálogo/documentos',
-        analisis: 'análisis',
-        reporte: 'reporte'
-      };
-      let meta = hora;
-      if (data.categoria) meta += ' · modo: ' + (etiquetas[data.categoria] || data.categoria);
-      if (data.fuentes && data.fuentes.length) meta += ' · fuentes: ' + data.fuentes.join(', ');
 
-      addMessage('agent', data.respuesta || 'No recibí respuesta del agente.', meta);
+      addMessage('agent', data.respuesta || 'No recibí respuesta del agente.', {
+        hora: hora,
+        categoria: data.categoria,
+        fuentes: data.fuentes
+      });
     } catch (e) {
       hideTyping();
-      addMessage('system', 'No se pudo conectar con ' + API_BASE + '. ¿Está el servidor corriendo?');
+      addMessage('agent', '❌ **No se pudo conectar con el servidor.** Por favor verifica que esté en ejecución.', {
+        hora: new Date().toLocaleTimeString('es-CO', { hour: '2-digit', minute: '2-digit' }),
+        categoria: 'conversacion'
+      });
       setStatus(false, 'Sin conexión');
     } finally {
       waiting = false;
@@ -783,7 +1449,7 @@
 
   sendBtn.addEventListener('click', () => sendMessage(textarea.value));
 
-  // Permite recorrer las sugerencias con la rueda del mouse y arrastrando la barra.
+  // Scroll horizontal de sugerencias con rueda del ratón
   suggestionsRow.addEventListener('wheel', (e) => {
     if (Math.abs(e.deltaY) > Math.abs(e.deltaX)) {
       suggestionsRow.scrollLeft += e.deltaY;
@@ -797,25 +1463,25 @@
     sendMessage(chip.dataset.prompt || chip.textContent);
   });
 
-  // Decorative hearts
+  // Partículas decorativas de cosméticos y destellos
   const heartsContainer = document.getElementById('heartsContainer');
-  const pinkIcons = ['💗', '🌸'];
+  const beautyIcons = ['✨', '🌸', '💄', '💖', '💎', '💋'];
 
-  function createHeart() {
-    const heart = document.createElement('div');
-    heart.classList.add('heart-particle');
-    heart.innerText = pinkIcons[Math.floor(Math.random() * pinkIcons.length)];
+  function createParticle() {
+    const p = document.createElement('div');
+    p.classList.add('heart-particle');
+    p.innerText = beautyIcons[Math.floor(Math.random() * beautyIcons.length)];
 
-    heart.style.left = Math.random() * 100 + '%';
-    heart.style.fontSize = (11 + Math.random() * 11) + 'px';
-    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+    p.style.left = Math.random() * 100 + '%';
+    p.style.fontSize = (11 + Math.random() * 11) + 'px';
+    p.style.animationDuration = (6 + Math.random() * 5) + 's';
 
-    heartsContainer.appendChild(heart);
-    setTimeout(() => heart.remove(), 10000);
+    heartsContainer.appendChild(p);
+    setTimeout(() => p.remove(), 11000);
   }
 
   if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-    setInterval(createHeart, 550);
+    setInterval(createParticle, 650);
   }
 
   checkHealth();
