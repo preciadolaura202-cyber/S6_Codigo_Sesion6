@@ -68,7 +68,7 @@ curl -X POST https://tu-proyecto.railway.app/chat \
 ```bash
 # 1. Clonar el repositorio
 git clone https://github.com/tu-usuario/tu-repo.git
-cd tu-repo
+cd "D:\Sesion 6\Sesion 6\files\LauraQuiroz-LAUPRÉA BEAUTY"
 
 # 2. Crear entorno virtual
 conda create -n agentes python=3.11 -y
