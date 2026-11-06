@@ -109,7 +109,10 @@ Ejemplos:
 "Analiza el desempeño de ventas por región" -> analisis
 "Compara las ventas de Bogotá y Medellín y saca conclusiones" -> analisis
 "¿Cuáles son los productos más vendidos del mes?" -> analisis
-"Investiga qué categoría está creciendo más en ventas" -> analisis"""
+"Investiga qué categoría está creciendo más en ventas" -> analisis
+"Hazme un gráfico interactivo de ventas por región" -> analisis
+"Muéstrame una gráfica de los productos más vendidos" -> analisis
+"Grafica las ventas por canal" -> analisis"""
     resp = llm.invoke([
         SystemMessage(content=instrucciones),
         HumanMessage(content=estado["entrada_usuario"]),
@@ -242,6 +245,18 @@ Estructura tu respuesta en Markdown con:
 - 📈 **Rendimiento Comercial & Cifras Clave** (destacando valores en COP y unidades)
 - ⚠️ **Puntos Críticos & Alertas de Inventario**
 - 🚀 **Estrategia & Recomendaciones Accionables**
+
+REGLA ESPECIAL PARA GRÁFICAS INTERACTIVAS Y ANIMADAS:
+- Si el usuario solicitó un gráfico, gráfica, visualización o si el análisis compara datos clave de regiones, categorías o canales, incluye SIEMPRE al inicio de tu respuesta un bloque de código ```chart con formato JSON válido para que el frontend dibuje el gráfico animado e interactivo con movimiento:
+```chart
+{
+  "type": "bar",
+  "title": "Ventas por Región (COP)",
+  "labels": ["Bogotá", "Medellín", "Cali", "Barranquilla"],
+  "data": [95000000, 72000000, 48000000, 31000000]
+}
+```
+Tipos de gráfico admitidos: "bar", "doughnut" o "line". El campo "data" debe contener sólo números sin formato de texto.
 
 Usa un tono empoderador, sofisticado, cálido y elegante. Responde en español."""),
         HumanMessage(content=f"Pregunta original: {estado['entrada_usuario']}\n\n"

@@ -7,8 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-  <!-- Markdown parser para renderizado enriquecido -->
+  <!-- Markdown parser -->
   <script src="https://cdn.jsdelivr.net/npm/marked@12.0.2/marked.min.js"></script>
+  <!-- Chart.js para gráficas animadas e interactivas -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
 
   <style>
     :root {
@@ -160,7 +162,6 @@
     }
 
     .brand-info { display: flex; flex-direction: column; gap: 3px; min-width: 0; }
-
     .title-row { display: flex; align-items: center; gap: 8px; }
 
     .title {
@@ -286,7 +287,7 @@
     }
 
     .message {
-      max-width: 86%;
+      max-width: 88%;
       display: flex;
       gap: 12px;
       animation: fadeInUp 0.3s cubic-bezier(0.16, 1, 0.3, 1) both;
@@ -328,9 +329,10 @@
       flex-direction: column;
       gap: 6px;
       min-width: 0;
+      width: 100%;
     }
 
-    .message.user .msg-body { align-items: flex-end; }
+    .message.user .msg-body { align-items: flex-end; width: auto; }
 
     .bubble {
       position: relative;
@@ -358,35 +360,23 @@
       box-shadow: 0 8px 24px rgba(0, 0, 0, 0.22);
     }
 
-    /* ── MARKDOWN STYLES DENTRO DE BUBBLE ── */
+    /* ── MARKDOWN STYLES ── */
     .bubble h1, .bubble h2, .bubble h3, .bubble h4 {
       margin: 10px 0 6px;
       color: #fff;
       font-weight: 700;
       letter-spacing: 0.02em;
     }
-
     .bubble h1 { font-size: 17px; color: var(--accent-pink); }
     .bubble h2 { font-size: 15.5px; border-bottom: 1px solid rgba(244, 190, 230, 0.18); padding-bottom: 4px; }
     .bubble h3 { font-size: 14.5px; color: #fbcfe8; }
-
     .bubble p { margin: 6px 0; }
     .bubble p:first-child { margin-top: 0; }
     .bubble p:last-child { margin-bottom: 0; }
-
     .bubble strong, .bubble b { color: var(--accent-pink); font-weight: 700; }
     .bubble em, .bubble i { color: #fdf2f8; font-style: italic; }
-
-    .bubble ul, .bubble ol {
-      margin: 8px 0 8px 20px;
-      padding: 0;
-    }
-
-    .bubble li {
-      margin: 4px 0;
-      line-height: 1.6;
-    }
-
+    .bubble ul, .bubble ol { margin: 8px 0 8px 20px; padding: 0; }
+    .bubble li { margin: 4px 0; line-height: 1.6; }
     .bubble blockquote {
       margin: 10px 0;
       padding: 10px 16px;
@@ -397,35 +387,244 @@
       color: #fce7f3;
     }
 
+    /* ── GRÁFICAS ANIMADAS (CHART.JS) ── */
+    .chart-card {
+      margin: 14px 0 10px;
+      background: rgba(14, 10, 24, 0.88);
+      border: 1px solid var(--border-strong);
+      border-radius: 20px;
+      padding: 18px 20px 16px;
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.45), 0 0 30px rgba(236, 72, 153, 0.16);
+      animation: chartCardFadeIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes chartCardFadeIn {
+      from { opacity: 0; transform: translateY(12px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .chart-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .chart-title-tag {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: #ffffff;
+      letter-spacing: 0.02em;
+    }
+
+    .chart-toggle-group {
+      display: inline-flex;
+      align-items: center;
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-color);
+      border-radius: 11px;
+      padding: 2px;
+      gap: 2px;
+    }
+
+    .chart-toggle-btn {
+      background: transparent;
+      border: none;
+      color: var(--text-muted);
+      padding: 4px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: var(--font-sans);
+    }
+
+    .chart-toggle-btn.active, .chart-toggle-btn:hover {
+      background: var(--gradient);
+      color: #fff;
+      box-shadow: 0 2px 8px rgba(236, 72, 153, 0.45);
+    }
+
+    .chart-canvas-wrapper {
+      position: relative;
+      width: 100%;
+      height: 260px;
+    }
+
+    /* ── TABLAS DINÁMICAS E INTERACTIVAS CON MOVIMIENTO ── */
+    .table-wrapper {
+      margin: 14px 0;
+      border-radius: 16px;
+      background: rgba(14, 10, 24, 0.72);
+      border: 1px solid var(--border-color);
+      overflow: hidden;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35);
+      animation: tableFadeIn 0.4s ease both;
+    }
+
+    @keyframes tableFadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .table-toolbar {
+      padding: 10px 14px;
+      background: rgba(255, 255, 255, 0.025);
+      border-bottom: 1px solid var(--border-color);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .table-search-box {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .table-search-icon {
+      position: absolute;
+      left: 9px;
+      width: 13px;
+      height: 13px;
+      stroke: var(--text-muted);
+      fill: none;
+      stroke-width: 2;
+      pointer-events: none;
+    }
+
+    .table-search-input {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--border-color);
+      border-radius: 9px;
+      padding: 5px 10px 5px 28px;
+      font-size: 11.5px;
+      color: #fff;
+      outline: none;
+      font-family: var(--font-sans);
+      width: 170px;
+      transition: all 0.25s ease;
+    }
+
+    .table-search-input:focus {
+      border-color: var(--accent-pink);
+      width: 210px;
+      box-shadow: 0 0 10px rgba(236, 72, 153, 0.2);
+    }
+
+    .table-sort-hint {
+      font-size: 10.5px;
+      color: var(--text-muted);
+      font-family: var(--font-mono);
+      letter-spacing: 0.02em;
+    }
+
     .bubble table {
       width: 100%;
       border-collapse: collapse;
-      margin: 12px 0;
+      margin: 0;
       font-size: 12.5px;
-      border-radius: 12px;
-      overflow: hidden;
-      background: rgba(15, 11, 25, 0.65);
-      border: 1px solid rgba(244, 190, 230, 0.2);
+      background: transparent;
+      border: none;
     }
 
     .bubble th {
       background: linear-gradient(135deg, rgba(236, 72, 153, 0.35), rgba(168, 85, 247, 0.35));
       color: #ffffff;
-      padding: 9px 12px;
+      padding: 10px 14px;
       text-align: left;
       font-weight: 700;
       letter-spacing: 0.03em;
       border-bottom: 1px solid rgba(244, 190, 230, 0.25);
+      cursor: pointer;
+      user-select: none;
+      transition: background 0.2s;
+    }
+
+    .bubble th:hover {
+      background: linear-gradient(135deg, rgba(236, 72, 153, 0.5), rgba(168, 85, 247, 0.5));
+    }
+
+    .sort-indicator {
+      display: inline-block;
+      margin-left: 6px;
+      font-size: 10px;
+      opacity: 0.75;
+      color: var(--accent-gold);
     }
 
     .bubble td {
-      padding: 8px 12px;
+      padding: 9px 14px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.05);
       color: var(--text-soft);
     }
 
-    .bubble tr:last-child td { border-bottom: none; }
-    .bubble tr:hover td { background: rgba(236, 72, 153, 0.07); }
+    /* Filas con animación escalonada */
+    .bubble tbody tr {
+      animation: rowSlide 0.35s ease-out both;
+      transition: background 0.2s;
+    }
+
+    @keyframes rowSlide {
+      from { opacity: 0; transform: translateX(-4px); }
+      to   { opacity: 1; transform: translateX(0); }
+    }
+
+    .bubble tbody tr:last-child td { border-bottom: none; }
+    .bubble tbody tr:hover td { background: rgba(236, 72, 153, 0.07); }
+
+    /* Badges de disponibilidad y stock con pulso */
+    .status-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 9px;
+      border-radius: 999px;
+    }
+
+    .status-pill.disponible {
+      background: rgba(52, 211, 153, 0.16);
+      color: #6ee7b7;
+      border: 1px solid rgba(52, 211, 153, 0.35);
+    }
+
+    .status-pill.bajo-stock {
+      background: rgba(251, 211, 141, 0.16);
+      color: #fde047;
+      border: 1px solid rgba(251, 211, 141, 0.35);
+    }
+
+    .status-pill.agotado {
+      background: rgba(248, 113, 113, 0.16);
+      color: #fca5a5;
+      border: 1px solid rgba(248, 113, 113, 0.35);
+    }
+
+    .status-pill-dot {
+      width: 5px;
+      height: 5px;
+      border-radius: 50%;
+      background: currentColor;
+    }
+
+    .status-pill.bajo-stock .status-pill-dot {
+      animation: pulseDot 1.4s infinite;
+    }
+
+    @keyframes pulseDot {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(0.7); }
+    }
 
     .bubble code {
       font-family: var(--font-mono);
@@ -446,14 +645,9 @@
       overflow-x: auto;
     }
 
-    .bubble pre code {
-      background: transparent;
-      border: none;
-      padding: 0;
-      color: #e2e8f0;
-    }
+    .bubble pre code { background: transparent; border: none; padding: 0; color: #e2e8f0; }
 
-    /* ── MESSAGE META & FOOTER ── */
+    /* ── MESSAGE FOOTER ── */
     .msg-footer {
       display: flex;
       align-items: center;
@@ -463,18 +657,8 @@
       padding: 0 4px;
     }
 
-    .meta-group {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      flex-wrap: wrap;
-    }
-
-    .meta {
-      font-family: var(--font-mono);
-      font-size: 10px;
-      color: var(--text-muted);
-    }
+    .meta-group { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+    .meta { font-family: var(--font-mono); font-size: 10px; color: var(--text-muted); }
 
     .badge-mode {
       font-family: var(--font-mono);
@@ -725,7 +909,7 @@
       background: var(--bg-elevated);
     }
 
-    /* ── MODAL "SOBRE LA MARCA" ── */
+    /* ── MODAL ── */
     .modal-overlay {
       position: absolute;
       inset: 0;
@@ -742,10 +926,7 @@
       transition: opacity 0.25s ease;
     }
 
-    .modal-overlay.active {
-      opacity: 1;
-      pointer-events: auto;
-    }
+    .modal-overlay.active { opacity: 1; pointer-events: auto; }
 
     .modal-card {
       width: 100%;
@@ -762,21 +943,10 @@
       transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .modal-overlay.active .modal-card {
-      transform: translateY(0) scale(1);
-    }
+    .modal-overlay.active .modal-card { transform: translateY(0) scale(1); }
 
-    .modal-header {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-
-    .modal-title-group {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-    }
+    .modal-header { display: flex; align-items: center; justify-content: space-between; }
+    .modal-title-group { display: flex; align-items: center; gap: 12px; }
 
     .modal-avatar {
       width: 44px;
@@ -850,11 +1020,7 @@
       gap: 6px;
     }
 
-    .modal-feature p {
-      font-size: 11px;
-      color: var(--text-muted);
-      margin: 0;
-    }
+    .modal-feature p { font-size: 11px; color: var(--text-muted); margin: 0; }
 
     /* Scrollbars */
     .chat-log::-webkit-scrollbar, .modal-body::-webkit-scrollbar { width: 6px; }
@@ -862,9 +1028,7 @@
       background: rgba(236, 72, 153, 0.4);
       border-radius: 4px;
     }
-    .chat-log::-webkit-scrollbar-track, .modal-body::-webkit-scrollbar-track {
-      background: transparent;
-    }
+    .chat-log::-webkit-scrollbar-track, .modal-body::-webkit-scrollbar-track { background: transparent; }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 760px) {
@@ -881,7 +1045,7 @@
       .suggestions { padding: 12px 14px 10px; }
       .chip { padding: 8px 12px; font-size: 12px; }
       .chat-input-area { padding: 12px 14px 10px; }
-      .message { max-width: 92%; }
+      .message { max-width: 95%; }
       .status span { display: none; }
       .status { padding: 8px; }
       .hint { display: none; }
@@ -947,14 +1111,14 @@
       <div class="msg-body">
         <div class="bubble">
           ¡Hola! ✨ Te doy la más cordial bienvenida a <b>LAUPRÉA BEAUTY</b>, creada con orgullo y pasión por <b>Laura Jimena Quiroz Preciado</b>.<br><br>
-          Soy tu <b>Asesora Oficial de Belleza &amp; Concierge Cosmético</b>. Puedo asesorarte sobre:
+          Soy tu <b>Asesora Oficial de Belleza &amp; Concierge Cosmético</b>. Ahora puedo generar <b>gráficas interactivas con movimiento</b> y <b>tablas dinámicas ordenables</b>:<br>
           <ul>
-            <li>💄 <b>Catálogo de Maquillaje &amp; Skincare:</b> precios, tonos y existencias en tiempo real.</li>
-            <li>📦 <b>Envíos, Políticas &amp; Pedidos:</b> rastreo con número de guía y garantías.</li>
-            <li>📊 <b>Inteligencia Comercial:</b> análisis de ventas regionales y canales por catálogo.</li>
-            <li>📋 <b>Reportes Ejecutivos:</b> informes estructurados con alertas y recomendaciones.</li>
+            <li>📊 <b>Gráficas animadas:</b> visualiza ventas por región, productos top y tendencias con interactividad táctil.</li>
+            <li>📋 <b>Tablas dinámicas:</b> busca, filtra y ordena productos, precios y stock en tiempo real.</li>
+            <li>💄 <b>Catálogo Oficial:</b> consulta tonos, precios y existencias en tiempo real.</li>
+            <li>📦 <b>Envíos &amp; Pedidos:</b> rastreo con número de guía y políticas comerciales.</li>
           </ul>
-          ¿En qué puedo ayudarte a brillar hoy? 🌸
+          ¿Qué análisis o producto deseas explorar hoy? 🌸
         </div>
         <div class="msg-footer">
           <div class="meta-group">
@@ -972,16 +1136,22 @@
 
   <!-- SUGERENCIAS RÁPIDAS -->
   <div class="suggestions" id="suggestions">
-    <div class="suggestions-label">Sugerencias recomendadas</div>
+    <div class="suggestions-label">Sugerencias interactivas</div>
     <div class="suggestions-row" id="suggestionsRow">
+      <button type="button" class="chip" data-prompt="Hazme una gráfica interactiva de las ventas por región">
+        📊 Gráfica de ventas por región
+      </button>
+      <button type="button" class="chip" data-prompt="Grafica los productos más vendidos del mes con un gráfico interactivo">
+        📈 Gráfica de productos más vendidos
+      </button>
+      <button type="button" class="chip" data-prompt="Muéstrame la tabla interactiva de productos con stock y precios">
+        📋 Tabla completa de catálogo
+      </button>
       <button type="button" class="chip" data-prompt="Muéstrame el catálogo de labiales con sus tonos, precios y existencias">
         💄 Catálogo de labiales
       </button>
       <button type="button" class="chip" data-prompt="¿Qué productos tienen stock bajo o están agotados?">
         ⚠️ Stock bajo o crítico
-      </button>
-      <button type="button" class="chip" data-prompt="¿Cuáles son los productos más vendidos del mes y en qué regiones?">
-        📈 Productos más vendidos
       </button>
       <button type="button" class="chip" data-prompt="Genera un reporte ejecutivo de ventas y estado de catálogo">
         📋 Reporte ejecutivo
@@ -992,19 +1162,13 @@
       <button type="button" class="chip" data-prompt="¿Cuál es la política de envíos, costos y tiempos de entrega?">
         🚚 Políticas de envío
       </button>
-      <button type="button" class="chip" data-prompt="¿Cómo va el estado del pedido PED-2026-1207?">
-        📦 Rastrear pedido
-      </button>
-      <button type="button" class="chip" data-prompt="Recomiéndame una rutina de skincare y maquillaje para una ocasión especial">
-        ✨ Rutina de belleza
-      </button>
     </div>
   </div>
 
   <!-- CAJA DE ENTRADA -->
   <div class="chat-input-area">
     <div class="input-row">
-      <textarea rows="1" id="userInput" placeholder="Escribe tu consulta sobre catálogo, productos, ventas o reportes..." aria-label="Mensaje"></textarea>
+      <textarea rows="1" id="userInput" placeholder="Pide una gráfica interactiva, tabla de stock o consulta de belleza..." aria-label="Mensaje"></textarea>
       <button class="send-btn" id="sendBtn" title="Enviar mensaje" aria-label="Enviar">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
       </button>
@@ -1050,8 +1214,8 @@
           <p>Consultas en tiempo real sobre PDFs y CSVs internos de productos y políticas.</p>
         </div>
         <div class="modal-feature">
-          <h4>📊 Equipo Analista</h4>
-          <p>Trio multiagente (Investigador → Analista → Redactor) para ventas regionales.</p>
+          <h4>📊 Gráficas &amp; Analítica</h4>
+          <p>Gráficas animadas con movimiento táctil y comparativas de ventas por región.</p>
         </div>
         <div class="modal-feature">
           <h4>📋 Reporte Estructurado</h4>
@@ -1081,6 +1245,9 @@
 
   let soundEnabled = true;
 
+  window.chartStorage = window.chartStorage || {};
+  window.chartInstances = window.chartInstances || {};
+
   const API_BASE = (location.protocol === 'file:' || !location.hostname)
     ? 'http://localhost:8000'
     : location.origin;
@@ -1099,7 +1266,7 @@
 
   let waiting = false;
 
-  // ── SINTETIZADOR DE SONIDO (Web Audio API) ──
+  // ── SINTETIZADOR DE SONIDO ──
   function playChime() {
     if (!soundEnabled) return;
     try {
@@ -1110,8 +1277,8 @@
       const gain = ctx.createGain();
 
       osc.type = 'sine';
-      osc.frequency.setValueAtTime(880, ctx.currentTime); // A5
-      osc.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + 0.15); // E6
+      osc.frequency.setValueAtTime(880, ctx.currentTime);
+      osc.frequency.exponentialRampToValueAtTime(1320, ctx.currentTime + 0.15);
 
       gain.gain.setValueAtTime(0.08, ctx.currentTime);
       gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.35);
@@ -1148,7 +1315,7 @@
     if (e.target === modalStory) closeStoryModal();
   });
 
-  // ── PARSER DE MARKDOWN RESILIENTE ──
+  // ── PARSER DE MARKDOWN RESILIENTE CON SOPORTE DE GRÁFICAS ──
   function parseSimpleMarkdown(md) {
     if (window.marked && typeof window.marked.parse === 'function') {
       try {
@@ -1158,32 +1325,20 @@
       }
     }
 
-    // Fallback robusto sin dependencias
     let esc = md
       .replace(/&/g, '&amp;')
       .replace(/</g, '&lt;')
       .replace(/>/g, '&gt;');
 
-    // Bloques de código
     esc = esc.replace(/```([\s\S]*?)```/g, '<pre><code>$1</code></pre>');
-
-    // Títulos
     esc = esc.replace(/^### (.*$)/gim, '<h3>$1</h3>');
     esc = esc.replace(/^## (.*$)/gim, '<h2>$1</h2>');
     esc = esc.replace(/^# (.*$)/gim, '<h1>$1</h1>');
-
-    // Citas blockquote
     esc = esc.replace(/^\&gt; (.*$)/gim, '<blockquote>$1</blockquote>');
-
-    // Negrita y cursiva
     esc = esc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
     esc = esc.replace(/\*(.*?)\*/g, '<em>$1</em>');
-
-    // Listas desordenadas
     esc = esc.replace(/^\s*[-•*]\s+(.*$)/gim, '<li>$1</li>');
     esc = esc.replace(/(<li>[\s\S]*?<\/li>)/gim, '<ul>$1</ul>');
-
-    // Saltos de línea
     esc = esc.replace(/\n\n/g, '<br><br>');
     esc = esc.replace(/\n/g, '<br>');
 
@@ -1206,6 +1361,212 @@
     }).catch(() => {});
   };
 
+  // ── MOTOR DE GRÁFICAS INTERACTIVAS (CHART.JS) ──
+  function renderInteractiveChart(canvasId, chartData) {
+    const canvas = document.getElementById(canvasId);
+    if (!canvas || !window.Chart) return;
+
+    window.chartStorage[canvasId] = chartData;
+
+    const ctx = canvas.getContext('2d');
+    const type = chartData.type || 'bar';
+
+    const beautyColors = [
+      'rgba(236, 72, 153, 0.85)',
+      'rgba(168, 85, 247, 0.85)',
+      'rgba(244, 63, 94, 0.85)',
+      'rgba(251, 211, 141, 0.85)',
+      'rgba(56, 189, 248, 0.85)',
+      'rgba(52, 211, 153, 0.85)',
+      'rgba(244, 114, 182, 0.85)'
+    ];
+    const beautyBorders = [
+      '#ec4899', '#a855f7', '#f43f5e', '#fbd38d', '#38bdf8', '#34d399', '#f472b6'
+    ];
+
+    const labels = chartData.labels || [];
+    let rawData = chartData.data || (chartData.datasets && chartData.datasets[0] ? chartData.datasets[0].data : []);
+    rawData = rawData.map(v => typeof v === 'number' ? v : parseFloat(String(v).replace(/[^0-9.-]/g, '')) || 0);
+
+    const isDoughnut = type === 'doughnut' || type === 'pie';
+
+    const chartConfig = {
+      type: type,
+      data: {
+        labels: labels,
+        datasets: [{
+          label: chartData.title || 'Valor',
+          data: rawData,
+          backgroundColor: isDoughnut ? beautyColors.slice(0, labels.length) : 'rgba(236, 72, 153, 0.75)',
+          borderColor: isDoughnut ? beautyBorders.slice(0, labels.length) : '#ec4899',
+          borderWidth: 2,
+          borderRadius: type === 'bar' ? 8 : 0,
+          fill: type === 'line' ? true : false,
+          tension: 0.35
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        animation: {
+          duration: 1200,
+          easing: 'easeOutQuart'
+        },
+        plugins: {
+          legend: {
+            display: isDoughnut,
+            position: 'bottom',
+            labels: { color: '#cbd5e1', font: { family: 'Plus Jakarta Sans', size: 11 } }
+          },
+          tooltip: {
+            backgroundColor: 'rgba(18, 14, 29, 0.95)',
+            titleColor: '#fff',
+            bodyColor: '#fbcfe8',
+            borderColor: 'rgba(236, 72, 153, 0.4)',
+            borderWidth: 1,
+            padding: 10,
+            callbacks: {
+              label: function(context) {
+                const val = context.raw;
+                if (typeof val === 'number') {
+                  return (val >= 1000)
+                    ? ' ' + val.toLocaleString('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 })
+                    : ' ' + val.toLocaleString('es-CO') + ' unidades';
+                }
+                return ' ' + val;
+              }
+            }
+          }
+        },
+        scales: isDoughnut ? {} : {
+          x: {
+            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+            ticks: { color: '#94a3b8', font: { family: 'Plus Jakarta Sans', size: 10.5 } }
+          },
+          y: {
+            grid: { color: 'rgba(255, 255, 255, 0.05)' },
+            ticks: {
+              color: '#94a3b8',
+              font: { family: 'Plus Jakarta Sans', size: 10.5 },
+              callback: function(value) {
+                if (value >= 1000000) return '$' + (value / 1000000).toFixed(0) + 'M';
+                if (value >= 1000) return '$' + (value / 1000).toFixed(0) + 'k';
+                return value;
+              }
+            }
+          }
+        }
+      }
+    };
+
+    if (window.chartInstances[canvasId]) {
+      window.chartInstances[canvasId].destroy();
+    }
+    window.chartInstances[canvasId] = new Chart(ctx, chartConfig);
+  }
+
+  window.switchChartType = function(canvasId, newType) {
+    const chartData = window.chartStorage[canvasId];
+    if (!chartData) return;
+
+    const card = document.getElementById(canvasId).closest('.chart-card');
+    if (card) {
+      card.querySelectorAll('.chart-toggle-btn').forEach(b => b.classList.remove('active'));
+      const targetBtn = card.querySelector(`.chart-toggle-btn[onclick*="${newType}"]`);
+      if (targetBtn) targetBtn.classList.add('active');
+    }
+
+    chartData.type = newType;
+    renderInteractiveChart(canvasId, chartData);
+  };
+
+  // ── POTENCIADOR DE TABLAS CON MOVIMIENTO Y FILTROS ──
+  function enhanceTables(container) {
+    const tables = container.querySelectorAll('table');
+    tables.forEach(table => {
+      if (table.closest('.table-wrapper')) return;
+
+      const wrapper = document.createElement('div');
+      wrapper.className = 'table-wrapper';
+      table.parentNode.insertBefore(wrapper, table);
+
+      const rows = Array.from(table.querySelectorAll('tbody tr'));
+      if (rows.length >= 3) {
+        const toolbar = document.createElement('div');
+        toolbar.className = 'table-toolbar';
+        toolbar.innerHTML = `
+          <div class="table-search-box">
+            <svg class="table-search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+            <input type="text" class="table-search-input" placeholder="Buscar en tabla..." oninput="window.filterTableRows(this)">
+          </div>
+          <span class="table-sort-hint">✨ Clic en cabecera para ordenar</span>
+        `;
+        wrapper.appendChild(toolbar);
+      }
+
+      wrapper.appendChild(table);
+
+      // Animación escalonada y badges
+      rows.forEach((row, idx) => {
+        row.style.animationDelay = (idx * 0.035) + 's';
+
+        Array.from(row.cells).forEach(cell => {
+          const txt = cell.textContent.trim().toLowerCase();
+          if (txt === 'disponible' || txt.startsWith('disponible')) {
+            cell.innerHTML = '<span class="status-pill disponible"><i class="status-pill-dot"></i>' + cell.textContent + '</span>';
+          } else if (txt === 'bajo stock' || txt.includes('stock bajo') || txt.includes('pocas unidades')) {
+            cell.innerHTML = '<span class="status-pill bajo-stock"><i class="status-pill-dot"></i>' + cell.textContent + '</span>';
+          } else if (txt === 'agotado' || txt.includes('agotado')) {
+            cell.innerHTML = '<span class="status-pill agotado"><i class="status-pill-dot"></i>' + cell.textContent + '</span>';
+          }
+        });
+      });
+
+      // Ordenar al hacer clic en columnas
+      const headers = table.querySelectorAll('th');
+      headers.forEach((th, colIdx) => {
+        th.setAttribute('title', 'Ordenar por esta columna');
+        th.innerHTML += '<span class="sort-indicator">⇅</span>';
+        let asc = true;
+        th.addEventListener('click', () => {
+          headers.forEach(h => {
+            const ind = h.querySelector('.sort-indicator');
+            if (ind) ind.textContent = '⇅';
+          });
+          const ind = th.querySelector('.sort-indicator');
+          ind.textContent = asc ? '▲' : '▼';
+
+          const tbody = table.querySelector('tbody') || table;
+          const currentRows = Array.from(tbody.querySelectorAll('tr'));
+          currentRows.sort((a, b) => {
+            const valA = a.cells[colIdx] ? a.cells[colIdx].textContent.trim().replace(/[\$,\.]/g, '') : '';
+            const valB = b.cells[colIdx] ? b.cells[colIdx].textContent.trim().replace(/[\$,\.]/g, '') : '';
+            const numA = parseFloat(valA);
+            const numB = parseFloat(valB);
+            if (!isNaN(numA) && !isNaN(numB)) {
+              return asc ? numA - numB : numB - numA;
+            }
+            return asc ? valA.localeCompare(valB) : valB.localeCompare(valA);
+          });
+          currentRows.forEach(r => tbody.appendChild(r));
+          asc = !asc;
+        });
+      });
+    });
+  }
+
+  window.filterTableRows = function(input) {
+    const term = input.value.toLowerCase().trim();
+    const wrapper = input.closest('.table-wrapper');
+    if (!wrapper) return;
+    const rows = wrapper.querySelectorAll('tbody tr');
+    rows.forEach(r => {
+      const text = r.textContent.toLowerCase();
+      r.style.display = text.includes(term) ? '' : 'none';
+    });
+  };
+
+  // ── AGREGAR MENSAJE AL CHAT ──
   function addMessage(role, rawContent, metaData) {
     const wrap = document.createElement('div');
     wrap.className = 'message ' + role;
@@ -1224,13 +1585,58 @@
     bubble.className = 'bubble';
 
     if (role === 'agent') {
-      bubble.innerHTML = parseSimpleMarkdown(rawContent);
+      // 1. Extraer bloques de gráficas interactivos ```chart {...} ```
+      const chartBlocks = [];
+      let processed = rawContent.replace(/```(?:chart|grafica|grafico)\s*([\s\S]*?)```/gi, (match, jsonText) => {
+        try {
+          const parsed = JSON.parse(jsonText.trim());
+          const chartId = 'chart_' + Math.random().toString(36).slice(2, 9);
+          chartBlocks.push({ id: chartId, data: parsed });
+          return `<div class="chart-slot-placeholder" data-chart-id="${chartId}"></div>`;
+        } catch (e) {
+          return match;
+        }
+      });
+
+      // 2. Parsear Markdown
+      bubble.innerHTML = parseSimpleMarkdown(processed);
+
+      // 3. Reemplazar slots con tarjetas de gráficas
+      chartBlocks.forEach(item => {
+        const slot = bubble.querySelector(`.chart-slot-placeholder[data-chart-id="${item.id}"]`);
+        if (slot) {
+          const card = document.createElement('div');
+          card.className = 'chart-card';
+          card.innerHTML = `
+            <div class="chart-header">
+              <div class="chart-title-tag">
+                <span>📊</span>
+                <span>${item.data.title || 'Análisis Visual'}</span>
+              </div>
+              <div class="chart-toggle-group">
+                <button type="button" class="chart-toggle-btn ${item.data.type === 'bar' || !item.data.type ? 'active' : ''}" onclick="window.switchChartType('${item.id}', 'bar')">Barras</button>
+                <button type="button" class="chart-toggle-btn ${item.data.type === 'doughnut' ? 'active' : ''}" onclick="window.switchChartType('${item.id}', 'doughnut')">Dona</button>
+                <button type="button" class="chart-toggle-btn ${item.data.type === 'line' ? 'active' : ''}" onclick="window.switchChartType('${item.id}', 'line')">Línea</button>
+              </div>
+            </div>
+            <div class="chart-canvas-wrapper">
+              <canvas id="${item.id}"></canvas>
+            </div>
+          `;
+          slot.replaceWith(card);
+          setTimeout(() => renderInteractiveChart(item.id, item.data), 50);
+        }
+      });
+
+      // 4. Mejorar tablas interactivas
+      enhanceTables(bubble);
+
     } else {
       bubble.textContent = rawContent;
     }
     body.appendChild(bubble);
 
-    // Footer de metadatos para mensajes del agente
+    // Footer de metadatos
     if (role === 'agent' && metaData) {
       const footer = document.createElement('div');
       footer.className = 'msg-footer';
@@ -1355,7 +1761,6 @@
     sessionId = generateSessionId();
     store.set('laupreaSessionId', sessionId);
 
-    // Limpia el chat y vuelve al saludo inicial
     chatLog.innerHTML = `
       <div class="day-divider">Hoy</div>
       <div class="message agent">
@@ -1363,7 +1768,7 @@
         <div class="msg-body">
           <div class="bubble">
             ¡Conversación reiniciada! ✨ Soy tu asesora de <b>LAUPRÉA BEAUTY</b>, creada por <b>Laura Jimena Quiroz Preciado</b>.<br>
-            ¿Qué consulta sobre catálogo, stock, ventas o reportes deseas realizar hoy? 💄
+            ¿Qué gráfica interactiva, tabla o consulta de catálogo deseas realizar hoy? 💄
           </div>
           <div class="msg-footer">
             <span class="meta">Asistente · ahora</span>
@@ -1463,7 +1868,7 @@
     sendMessage(chip.dataset.prompt || chip.textContent);
   });
 
-  // Partículas decorativas de cosméticos y destellos
+  // Partículas decorativas
   const heartsContainer = document.getElementById('heartsContainer');
   const beautyIcons = ['✨', '🌸', '💄', '💖', '💎', '💋'];
 
