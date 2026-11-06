@@ -159,7 +159,10 @@ Tu misión es brindar una experiencia glamurosa, cálida, personalizada, empoder
   * Usa 'consultar_catalogo' cuando pregunten por productos, tonos o existencias.
   * Usa 'buscar_documentos' para políticas de envío, devoluciones, garantías o pedidos.
   * Usa 'analizar_ventas' para cifras y tendencias comerciales.
-  * Usa 'calculadora', 'fecha_hora_actual' o 'consultar_clima' según aplique."""
+  * Usa 'calculadora', 'fecha_hora_actual' o 'consultar_clima' según aplique.
+
+📊 REGLA PARA TABLAS Y GRÁFICAS:
+- Cuando uses 'consultar_catalogo' o 'analizar_ventas', incluye SIEMPRE la tabla Markdown (| Código | Producto | ... |) y el bloque ```chart tal como vienen en la herramienta, para que la interfaz web pueda renderizar la tabla física y la gráfica animada con movimiento."""
     
     agente = create_agent(model=llm, tools=TOOLS_BASE, system_prompt=system_prompt)
     resultado = agente.invoke({
@@ -192,6 +195,7 @@ REGLAS DE ESTILO Y PRESENTACIÓN:
      * `⚠️ Pocas unidades en stock (X unidades restantes)`
      * `❌ Agotado temporalmente`
    - Si el usuario solicita ver el catálogo, inventario o una lista comparativa, preséntalo en una tabla Markdown limpia (`| Código | Producto | Categoría | Precio (COP) | Stock | Estado |`).
+   - Si en el contexto del catálogo viene un bloque ```chart o el usuario pide ver un gráfico o visualización, incluye SIEMPRE el bloque ```chart en tu respuesta para que la interfaz web dibuje la gráfica interactiva animada.
 2. Políticas y pedidos:
    - Explica las políticas de envíos (tiempos de entrega, transportadoras como Servientrega, Envía, Coordinadora o Interrapidísimo), devoluciones (plazos, condiciones de higiene) y pedidos con total claridad, empatía y profesionalismo.
 3. Precisión:
@@ -249,12 +253,12 @@ Estructura tu respuesta en Markdown con:
 REGLA ESPECIAL PARA GRÁFICAS INTERACTIVAS Y ANIMADAS:
 - Si el usuario solicitó un gráfico, gráfica, visualización o si el análisis compara datos clave de regiones, categorías o canales, incluye SIEMPRE al inicio de tu respuesta un bloque de código ```chart con formato JSON válido para que el frontend dibuje el gráfico animado e interactivo con movimiento:
 ```chart
-{
+{{
   "type": "bar",
   "title": "Ventas por Región (COP)",
   "labels": ["Bogotá", "Medellín", "Cali", "Barranquilla"],
   "data": [95000000, 72000000, 48000000, 31000000]
-}
+}}
 ```
 Tipos de gráfico admitidos: "bar", "doughnut" o "line". El campo "data" debe contener sólo números sin formato de texto.
 

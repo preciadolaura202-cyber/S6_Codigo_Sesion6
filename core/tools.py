@@ -11,6 +11,7 @@ Reúne las herramientas vistas en el curso:
 import os
 import sys
 import math
+import json
 from datetime import datetime
 from pathlib import Path
 from zoneinfo import ZoneInfo
@@ -119,9 +120,28 @@ def consultar_catalogo(categoria: str = "", solo_stock_bajo: bool = False) -> st
         return "No se encontraron productos con ese criterio."
 
     df = df.copy()
-    df["precio_cop"] = df["precio_cop"].map(lambda v: f"${v:,.0f}")
-    columnas = ["codigo", "producto", "categoria", "precio_cop", "stock", "estado"]
-    return df[columnas].to_string(index=False)
+    df["precio_cop_fmt"] = df["precio_cop"].map(lambda v: f"${v:,.0f} COP")
+    columnas = ["codigo", "producto", "categoria", "precio_cop_fmt", "stock", "estado"]
+
+    # Generar tabla Markdown estructurada con pipes
+    header = "| Código | Producto | Categoría | Precio | Stock | Estado |"
+    sep    = "| :--- | :--- | :--- | :--- | :--- | :--- |"
+    filas  = [
+        f"| {r['codigo']} | {r['producto']} | {r['categoria']} | {r['precio_cop_fmt']} | {r['stock']} | {r['estado']} |"
+        for _, r in df.iterrows()
+    ]
+    tabla_md = "\n".join([header, sep] + filas)
+
+    # Gráfica de stock para los primeros productos
+    chart_df = df.head(8)
+    chart_json = json.dumps({
+        "type": "bar",
+        "title": f"Stock de Productos ({categoria.capitalize() if categoria else 'Catálogo'})",
+        "labels": list(chart_df["producto"]),
+        "data": [int(s) for s in chart_df["stock"]]
+    }, ensure_ascii=False)
+
+    return f"{tabla_md}\n\n```chart\n{chart_json}\n```"
 
 
 @tool
@@ -158,10 +178,23 @@ def analizar_ventas(agrupar_por: str = "region") -> str:
 
     total = float(df["valor_total_cop"].sum())
     unidades = int(df["unidades"].sum())
-    lineas = [f"- {idx}: ${float(val):,.0f} COP" for idx, val in resumen.items()]
+    
+    col_nombre = agrupar_por.capitalize()
+    tabla_header = f"| {col_nombre} | Ventas (COP) |\n| :--- | :--- |"
+    tabla_filas = [f"| {idx} | ${float(val):,.0f} COP |" for idx, val in resumen.items()]
+    tabla_md = tabla_header + "\n" + "\n".join(tabla_filas)
+
+    chart_json = json.dumps({
+        "type": "bar",
+        "title": f"Ventas por {col_nombre} (COP)",
+        "labels": [str(k) for k in resumen.index[:8]],
+        "data": [int(v) for v in resumen.values[:8]]
+    }, ensure_ascii=False)
+
     return (
         f"Ventas totales del periodo: ${total:,.0f} COP en {unidades:,.0f} unidades\n\n"
-        f"Desglose por {agrupar_por}:\n" + "\n".join(lineas)
+        f"{tabla_md}\n\n"
+        f"```chart\n{chart_json}\n```"
     )
 
 
